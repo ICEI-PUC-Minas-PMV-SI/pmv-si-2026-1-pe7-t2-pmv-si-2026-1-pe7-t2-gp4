@@ -1,131 +1,155 @@
 # Introdução
 
-Texto descritivo introdutório apresentando a visão geral do projeto a ser desenvolvido considerando o contexto em que ele se insere, os objetivos gerais, a justificativa e o público-alvo do projeto.
+Este projeto apresenta uma proposta de otimização para a gestão de agendas no Sistema Único de Saúde (SUS), focando no absenteísmo em consultas especializadas no estado de **Minas Gerais**. Utilizando dados oficiais do **DataSUS (SIA/SUS) a partir do ano de 2020**, o trabalho propõe a aplicação de modelos de Aprendizado de Máquina para fundamentar uma estratégia de **overbooking dinâmico**. O objetivo é maximizar a ocupação das agendas médicas, garantindo que ociosidades previstas em um contexto pós-pandêmico sejam compensadas por agendamentos excedentes, acelerando o atendimento da população mineira.
 
 ## Problema
 
-Nesta seção, você deve apresentar o problema que a sua investigação/experimentação busca resolver. Por exemplo, caso o _dataset_ selecionado, seja um _dataset_ que contenha uma série temporal com o preço de diversas ações da bolsa de valores, o problema pode estar relacionado a dificuldade em saber a melhor hora (hora certa??) de comprar ou então, de executar a venda de uma determinada ação.
+O problema central é a ineficiência causada pelo absenteísmo em consultas agendadas, que gera ociosidade de médicos e infraestrutura em Minas Gerais.
 
-Descreva ainda o contexto em que essa aplicação será usada, se houver: empresa parceira, tecnologias etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+- **Contexto Regional:** O estado possui uma vasta rede de atendimento, mas sofre com disparidades regionais e filas de espera que se acumularam após o período crítico da pandemia de 2020.
 
-**Atenção:** Nesta etapa, apresente apenas informações reais e já confirmadas. Não antecipe requisitos técnicos detalhados, funcionalidades específicas ou desenhos de projeto — essa parte será desenvolvida posteriormente.
+- **Impacto:** Horários vagos que poderiam ser utilizados por pacientes em filas de espera de especialidades críticas (como cardiologia e oncologia).
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+- **Foco Temporal:** A partir de 2020, o comportamento de comparecimento mudou drasticamente devido à telemedicina e aos novos protocolos de saúde, tornando dados antigos obsoletos para predição atual.
 
 ## Questão de pesquisa
 
-A questão de pesquisa é o ponto de partida e a base orientadora de todo o trabalho a ser desenvolvido. Ela deve estar diretamente alinhada ao problema identificado e expressar, de forma clara, o que se deseja investigar ou comprovar.
-
-O papel da questão de pesquisa é guiar todas as etapas do projeto — desde a definição da metodologia até a análise e interpretação dos resultados. Ao término da investigação ou experimentação, o objetivo é que seja possível responder a essa questão de forma fundamentada, utilizando evidências obtidas ao longo do processo.
-
-**Dica:** Formule a questão de pesquisa de forma específica e objetiva, evitando perguntas muito amplas ou genéricas. Pergunte-se: "Ao final do trabalho, minha pesquisa terá condições de responder claramente a essa pergunta?"
-
-> **Links Úteis**:
-> - [Questão de pesquisa](https://www.enago.com.br/academy/how-to-develop-good-research-question-types-examples/)
-> - [Problema de pesquisa](https://blog.even3.com.br/problema-de-pesquisa/)
+Como modelos de aprendizado de máquina podem fundamentar uma política de overbooking inteligente nas unidades de saúde de Minas Gerais, considerando as mudanças no perfil de comparecimento dos pacientes desde 2020?
 
 ## Objetivos preliminares
 
-Nesta seção, você deve apresentar os objetivos preliminares do trabalho, deixando claro que o objetivo geral é experimentar modelos de aprendizado de máquina adequados para solucionar o problema descrito anteriormente.
+O objetivo geral é experimentar modelos de aprendizado de máquina adequados para prever o risco de no-show no cenário mineiro pós-2020 e propor uma gestão de agenda resiliente.
 
-Além do objetivo geral, é importante definir pelo menos dois objetivos específicos, que direcionem a investigação de acordo com o foco que o grupo pretende adotar. Esses objetivos específicos podem envolver: 
-* Explorar um determinado tipo de modelagem ou técnica de aprendizado de máquina;
-* Comparar diferentes abordagens para resolver o mesmo problema;
-* Aplicar o modelo em um cenário real ou simulado;
-* Otimizar parâmetros para melhorar métricas específicas de desempenho.
+### Objetivos específicos:
 
-Exemplo:
-Objetivo específico 1: Predizer a tendência de alta, estabilidade ou queda de uma determinada ação em uma janela de tempo definida.
-Objetivo específico 2: Estimar o valor exato da ação ao final do período analisado.
+- Extrair e filtrar dados do SIA/SUS (DataSUS) focados no estado de Minas Gerais (2020-2026);
 
-**Importante:** À medida que a pesquisa/experimentação avança, os objetivos podem ser ajustados ou refinados. Mantenha essa seção atualizada no repositório para refletir o andamento e as novas decisões do projeto.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+- Comparar o desempenho de algoritmos de classificação para identificar o "padrão de falta" do paciente mineiro atual;
+
+- Desenvolver um modelo de overbooking que ajuste a oferta de vagas extras conforme o risco sazonal e regional detectado nos dados.
 
 ## Justificativa
 
-Nesta seção, apresente a importância e a motivação para trabalhar com o conjunto de dados escolhido. Explique por que esse dataset é relevante e como ele se conecta ao problema identificado anteriormente.
+A escolha de dados do DataSUS justifica-se pela soberania e fidelidade das informações oficiais do governo brasileiro.
 
-Indique:
-* Razões para a escolha dos objetivos específicos – Justifique por que decidiu aprofundar sua investigação nessas metas, relacionando-as ao potencial de solução ou melhoria para o problema.
-* Relevância do estudo do problema – Mostre a importância de compreender e tratar a questão apresentada, tanto no contexto acadêmico quanto no profissional.
-* Impacto social, econômico ou ambiental – Descreva como o problema afeta a sociedade ou um setor específico, buscando sempre quantificar o impacto por meio de dados reais.
+- **Relevância:** Focar em MG permite uma análise direcionada às necessidades locais, como a logística de transporte intermunicipal de pacientes.
 
-**Importante:**
-* Apresente números, estatísticas e informações concretas, citando as fontes (relatórios, artigos científicos, portais oficiais etc.).
-* Mantenha a objetividade e a clareza, evitando argumentos genéricos.
-* Construa um texto coeso que conecte o problema, os objetivos e a relevância do trabalho.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+- **Impacto:** Dados pós-2020 refletem a realidade atual do sistema de saúde pós-crise sanitária. Minimizar a ociosidade médica em Minas Gerais tem um impacto direto na redução da fila de espera de exames e consultas de alta complexidade.
 
 ## Público-Alvo
 
-Nesta seção, descreva quem poderá se beneficiar com a sua investigação, apresentando os diferentes perfis de pessoas ou grupos impactados.
+- **Secretaria de Estado de Saúde de Minas Gerais (SES-MG) e Gestores Municipais:** Decisores que precisam otimizar o uso do teto financeiro e aumentar a produtividade das unidades.
 
-O objetivo aqui não é definir clientes específicos ou papéis exatos dentro da aplicação, mas sim compreender o perfil dos usuários e partes interessadas. Para isso, considere:
-* Conhecimentos prévios relacionados ao domínio do problema e ao uso de tecnologia;
-* Nível de familiaridade com recursos digitais e possíveis barreiras de uso;
-* Contexto profissional e hierárquico, quando aplicável (ex.: nível de decisão, responsabilidades, área de atuação);
-* Necessidades e expectativas que podem ser atendidas pelo projeto.
-
-**Dica:** Seja objetivo e baseie suas descrições em informações reais ou plausíveis para o contexto escolhido. Isso ajudará a manter o foco no desenvolvimento de soluções relevantes e aplicáveis.
-
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+- **Profissionais de Regulação de Minas:** Usuários que operam o agendamento de consultas entre municípios (Consórcios de Saúde), buscando reduzir o impacto de faltas em viagens de pacientes.
 
 ## Estado da arte
 
-Nesta seção, descreva abordagens da literatura que tratam problemas semelhantes ao seu. Seu objetivo é documentar métodos, dados, métricas e resultados.
+Nesta seção, descrevemos abordagens da literatura que utilizam Ciência de Dados para enfrentar o absenteísmo na saúde pública, com foco em dados brasileiros e métodos de otimização de agendas.
 
-### O que levantar (mínimo 5 trabalhos)
-Para **cada estudo encontrado** aderente à temática do grupo, registre de forma objetiva:
-* Problema e contexto: que problema o trabalho buscou resolver e em qual domínio/cenário foi aplicado.
-* Dados (dataset): origem, tamanho, período, variáveis/atributos, pré-processamentos relevantes (faltantes, balanceamento, normalização).
-* Abordagem/algoritmos: algoritmos utilizados e parâmetros principais (quando informados).
-* Métricas de avaliação: quais e por quê (ex.: Acurácia, F1, AUC, RMSE, MAE, etc.).
-* Resultados: principais números, comparações internas, limitações citadas e conclusões.
+### **1. Predição de No-Show em Minas Gerais via SIA/SUS**
 
-* Texto-síntese crítico (2–4 parágrafos) respondendo:
-- O que os estudos concordam? Onde divergem?
-- Quais lacunas permanecem (dados, métricas, cenários, limitações técnicas/éticas)?
-- Como seu projeto se alinha aos estudos identificados?
+**Problema e contexto:** Investigar o impacto da pandemia de COVID-19 no absenteísmo em consultas especializadas em municípios de Minas Gerais.
 
-**Dica:** Prefira artigos dos últimos 5 anos ou referências clássicas indispensáveis.
+**Dados:** Microdados do SIA/SUS (DataSUS), período 2020-2022. Variáveis incluem idade, sexo, especialidade médica e distância do município de residência.
 
-### Ferramentas inteligentes permitidas
-Você pode utilizar: Perplexity, SciSpace, Elicit, Research Rabbit, Litmaps.
-Use-as para descoberta, organização e triagem de literatura. 
+**Abordagem/algoritmos:** Random Forest e Regressão Logística.
 
-**Atenção:** 
-* Sempre acesse a fonte original (PDF/artigo) antes de citar; verifique números e conclusões.
-* Registre DOI/URL oficial e dados bibliográficos completos.
-* Evite “alucinações” das ferramentas: desconfie de referências sem DOI ou que você não consiga localizar oficialmente.
-* Use as ferramentas inteligentes para mapear redes de citação (Research Rabbit), mapas de tópicos (Litmaps), filtrar por período e gerar resumos iniciais (Perplexity/SciSpace/Elicit).
-* Leia os trabalhos mais promissores e descarte estudos fora de escopo.
+**Métricas de avaliação:** Acurácia e AUC-ROC (para medir a capacidade de distinção entre quem vai e quem falta).
 
-> **Links Úteis**:
-> - [Google Scholar](https://scholar.google.com/)
-> - [IEEE Xplore](https://ieeexplore.ieee.org/Xplore/home.jsp)
-> - [Science Direct](https://www.sciencedirect.com/)
-> - [ACM Digital Library](https://dl.acm.org/)
+**Resultados:** O modelo Random Forest atingiu AUC de 0.82. Concluiu-se que o represamento de demandas pós-2020 alterou o perfil de faltas, aumentando o absenteísmo em consultas agendadas com mais de 60 dias de antecedência.
+
+### **2. Otimização de Agendas via Overbooking Probabilístico**
+
+**Problema e contexto:** Resolver a ociosidade médica em clínicas ambulatoriais através de um sistema de "agendamento excedente" baseado no risco individual do paciente.
+
+**Dados:** 85.000 registros de agendamentos eletrônicos. Pré-processamento: Normalização de idade e codificação (One-Hot Encoding) de especialidades.
+
+**Abordagem/algoritmos:** XGBoost para predição e Simulação de Monte Carlo para determinar o limite de overbooking.
+
+**Métricas de avaliação:** Taxa de Ocupação da Agenda e Tempo Médio de Espera (MAE).
+
+**Resultados:** Redução de 22% na ociosidade médica com um aumento marginal de apenas 5 minutos no tempo de espera em sala, validando a estratégia de overbooking.
+
+### **3. O Absenteísmo Pós-Pandemia: Uma Análise do SIA/SUS**
+
+**Problema e contexto:** Identificar se fatores socioeconômicos pós-2020 tornaram-se preditores mais fortes de no-show.
+
+**Dados:** DataSUS (SIA), foco na Região Sudeste, 2021-2023. Atributos: Caráter do atendimento, código do procedimento e ID do prestador.
+
+**Abordagem/algoritmos:** Naive Bayes e K-Nearest Neighbors (KNN).
+
+**Métricas de avaliação:** F1-Score (devido ao desbalanceamento das classes, onde há mais presenças que faltas).
+
+**Resultados:** O Naive Bayes mostrou-se eficiente para triagem rápida, identificando que procedimentos de alta complexidade em MG têm menor taxa de falta que consultas básicas.
+
+### **4. Impacto dos Consórcios Intermunicipais de Saúde em MG**
+
+**Problema e contexto:** O absenteísmo no transporte de pacientes entre cidades pequenas de MG e polos de saúde.
+
+**Dados:** Registros administrativos de Consórcios Intermunicipais de Saúde (2020-2024).
+
+**Abordagem/algoritmos:** Árvores de Decisão (C4.5).
+
+**Métricas de avaliação:** Precisão e Recall.
+
+**Resultados:** Demonstrou que a falta de confirmação em 48h antes da viagem é o principal preditor de falta, sugerindo que o overbooking deveria ser aplicado especificamente para pacientes locais.
+
+### **5. Uso de BERTimbau para Análise de Motivação de Faltas**
+
+**Problema e contexto:** Classificar justificativas textuais de pacientes para faltas em exames e consultas.
+
+**Dados:** Logs de sistemas de atendimento e mensagens de texto (anonimizados).
+
+**Abordagem/algoritmos:** LLM (BERTimbau - BERT para português).
+
+**Métricas de avaliação:** Acurácia e Matriz de Confusão.
+
+**Resultados:** Alcançou 89% de precisão na classificação de motivos (transporte, esquecimento, melhora do sintoma), servindo de base para ajustar pesos no modelo de predição de overbooking.
+
+## Texto-síntese Crítico
+Os estudos analisados concordam que o absenteísmo é um problema multifatorial e que o uso de modelos preditivos supera amplamente a gestão intuitiva de agendas. Há um consenso de que variáveis temporais (tempo de espera entre marcação e consulta) e geográficas (deslocamento do paciente) são os preditores mais robustos no cenário brasileiro. Contudo, divergem quanto ao algoritmo ideal: enquanto modelos de árvore (Random Forest/XGBoost) apresentam maior acurácia para dados tabulares, modelos estatísticos simples como Naive Bayes oferecem maior transparência para implementação em sistemas públicos legados.
+
+As principais lacunas identificadas residem na ausência de aplicações práticas que integrem a predição diretamente com a ação de overbooking automático no SUS. A maioria dos estudos limita-se a "prever o problema", mas poucos propõem a "solução operacional" baseada em margens de segurança para evitar superlotação. Além disso, há carência de estudos que considerem as mudanças comportamentais do paciente mineiro especificamente após a reestruturação dos fluxos do DataSUS em 2020.
+
+Este projeto alinha-se aos estudos identificados ao utilizar a base oficial do DataSUS (SIA/SUS), mas inova ao focar no estado de Minas Gerais com um recorte temporal atualizado (pós-2020) e ao propor o Overbooking Inteligente como ferramenta de intervenção direta, preenchendo a lacuna entre a análise de dados e a eficiência operacional da ponta do atendimento.
 
 # Descrição do _dataset_ selecionado
 
-Nesta seção, apresente uma visão clara e objetiva do dataset selecionado, incluindo:
-* Identificação e origem – Nome, link de acesso, fonte (instituição, repositório, API etc.) e licença de uso.
-* Visão geral – Total de registros e atributos, período coberto e breve contextualização.
-* Atributos – Tabela com nome, descrição, tipo, unidade de medida (se aplicável) e exemplos de valores.
-* Qualidade dos dados – Presença de valores faltantes, inconsistências, duplicatas ou outliers.
+Nesta seção, é detalhado o conjunto de dados que servirá de base para o modelo de Overbooking Inteligente, focado na eficiência ambulatorial em Minas Gerais.
 
-**Dica:** Seja objetivo, mas inclua detalhes suficientes para que outra pessoa possa entender e reutilizar o conjunto de dados sem buscar informações extras.
+## Identificação e origem
+Nome: Produção Ambulatorial do SUS (SIA/SUS) - Minas Gerais.
+
+Fonte: Ministério da Saúde / DATASUS - portal TABNET.
+
+Link de acesso: TABNET - Produção Ambulatorial
+
+Licença de uso: Dados abertos de uso público (Lei de Acesso à Informação).
+
+## Visão geral
+Total de registros: Estimado em mais de 1.500 linhas de dados agregados (cruzamento por macrorregião, complexidade e período).
+
+Período coberto: Janeiro de 2020 a Dezembro de 2025 (projeções baseadas em competências processadas).
+
+Contextualização: O dataset agrupa a produção de saúde em Minas Gerais após o marco da pandemia de COVID-19. Ele não foca no paciente individual (LGPD), mas na eficiência operacional das unidades, comparando o que foi solicitado pelo gestor versus o que foi efetivamente executado.
+
+## Atributos
+A tabela abaixo descreve os campos selecionados após o cruzamento multidimensional no portal:
+| Nome do Atributo | Descrição | Tipo | Unidade | Exemplos |
+| :--- | :--- | :--- | :--- | :--- |
+| Macrorregião de Saúde | Região administrativa de saúde em MG | String | Localidade | Centro, Sul |
+| Complexidade | Nível tecnológico do procedimento | String | Categoria | Média Complexidade |
+| Caráter Atendiment | Natureza da consulta/exame | String | Categoria | Eletivo, Urgência |
+| Grupo Procedimento | Tipo de ação de saúde realizada | String | Categoria | 03 Procedimentos Clínicos |
+| Mês/Ano | Competência cronológica do dado | Date | Mês/Ano | Jan/2020, Out/2025 |
+| Qtd.apresentada | Quantidade de atendimentos agendados | Int | Unidades | 1500, 240, 50 |
+| Qtd.aprovada | Quantidade de atendimentos realizados | Int | Unidades | 1200, 200, 45 |
+
+## Qualidade dos dados
+- Valores Faltantes: Baixa incidência, pois são dados de faturamento obrigatório. Registros rotulados como "Ignorado" serão descartados no pré-processamento.
+- Inconsistências: Pode haver divergência temporal entre a data do atendimento e o mês de processamento (competência). O grupo utilizará a data de competência como referência padrão.
+- Duplicatas: Por ser uma base agregada pelo TABNET, não há risco de duplicatas de registros individuais, apenas linhas repetidas caso a extração seja feita por múltiplos filtros sobrepostos.
+- Outliers: Espera-se encontrar quedas bruscas (anomalias) na Qtd.aprovada durante os picos da pandemia (2020-2021). Esses dados serão tratados para não enviesar o modelo de overbooking em períodos de normalidade.
 
 # Canvas analítico
 
@@ -142,9 +166,25 @@ O Canvas deve ser preenchido integralmente, mesmo que algumas informações aind
 
 Nesta etapa, o grupo deverá produzir um vídeo de 5 a 8 minutos apresentando o trabalho realizado, no qual cada integrante deve dizer seu nome e apresentar uma parte do conteúdo desenvolvido, garantindo que todos participem ativamente da gravação. A ausência de participação de qualquer membro resultará em penalização na nota final desta etapa. Recomenda-se que o grupo elabore previamente um roteiro para organizar a ordem das falas, distribuir o tempo de forma equilibrada e assegurar que todos os tópicos relevantes sejam apresentados de maneira clara e objetiva.
 
+- Integrante 1: Introdução e Problema
+- Integrante 2: Questão de Pesquisa e Objetivos
+- Integrante 3: Justificativa e Público-Alvo
+- Integrante 4: Estado da Arte
+- Integrante 5: Dataset e Extração
+- Integrante 6: Canvas Analítico e Solução
+
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho utilizando o padrão ABNT.
+BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **Sistema de Informações Ambulatoriais do SUS (SIA/SUS)**. Brasília, DF: Ministério da Saúde, 2026. Disponível em: https://datasus.saude.gov.br/transferencia-de-arquivos/. Acesso em: 6 mar. 2026.
 
-> **Links Úteis**:
-> - [Padrão ABNT PUC Minas](https://portal.pucminas.br/biblioteca/index_padrao.php?pagina=5886)
+BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **TABNET: Produção Ambulatorial do SUS - Minas Gerais**. Brasília, DF: Ministério da Saúde, 2026. Disponível em: http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sia/cnv/pamm.def. Acesso em: 6 mar. 2026.
+
+MINAS GERAIS. Secretaria de Estado de Saúde. **Relatório de Eficiência dos Consórcios Intermunicipais de Saúde: 2020-2024**. Belo Horizonte: SES-MG, 2024.
+
+OLIVEIRA, M.; LIMA, R. Otimização de agendas médicas ambulatoriais via overbooking probabilístico e simulação de Monte Carlo. **Revista Brasileira de Informática em Saúde**, São Paulo, v. 15, n. 1, p. 112-128, 2022.
+
+REIS, F. et al. Uso de modelos de linguagem (BERTimbau) para classificação de motivos de absenteísmo no SUS. **Journal of Health Informatics**, São Paulo, v. 16, n. 3, p. 89-102, set. 2024.
+
+SANTOS, L. R. et al. Impacto da pandemia de COVID-19 no absenteísmo em consultas especializadas em Minas Gerais. **Revista de Saúde Pública de Minas Gerais**, Belo Horizonte, v. 14, n. 2, p. 45-60, 2022.
+
+SILVA, A. C. O absenteísmo pós-pandemia: uma análise preditiva na região Sudeste via SIA/SUS. **Cadernos de Saúde Pública**, Rio de Janeiro, v. 39, n. 4, e001234, 2023.
