@@ -152,26 +152,14 @@ A tabela abaixo descreve os campos selecionados após o cruzamento multidimensio
 - Outliers: Espera-se encontrar quedas bruscas (anomalias) na Qtd.aprovada durante os picos da pandemia (2020-2021). Esses dados serão tratados para não enviesar o modelo de overbooking em períodos de normalidade.
 
 # Canvas analítico
+Para guiar visualmente alinhando expectativas e direcionando o desenvolvimento do projeto, segue abaixo o Canvas Analítico. 
+Ele poderá (e deverá) ser revisitado e atualizado ao longo do projeto, já que como o projeto se encontra em uma etapa inicial, é aceitável trabalhar com hipóteses ou estimativas, desde que sejam coerentes com o problema e o contexto definidos.
 
-Nesta seção, você deverá estruturar e preencher o seu Canvas Analítico, que tem como objetivo registrar a organização das ideias e apresentar o modelo de negócio do projeto.
-
-O Canvas deve ser preenchido integralmente, mesmo que algumas informações ainda não estejam totalmente definidas. Nessa etapa inicial, é aceitável trabalhar com hipóteses ou estimativas, desde que sejam coerentes com o problema e o contexto definidos.
-
-**Dica:** O Canvas Analítico serve como guia visual para alinhar expectativas e direcionar o desenvolvimento. Ele poderá (e deverá) ser revisitado e atualizado ao longo do projeto.
-
-> **Links Úteis**:
-> - [Modelo do Canvas Analítico](https://github.com/ICEI-PUC-Minas-PMV-SI/PesquisaExperimentacao-Template/blob/main/help/Software-Analtics-Canvas-v1.0.pdf)
+<img width="1084" height="767" alt="image" src="https://github.com/user-attachments/assets/e8965fe3-e772-44d1-8b39-5d49469e8042" />
 
 # Vídeo de apresentação da Etapa 01
 
 Nesta etapa, o grupo deverá produzir um vídeo de 5 a 8 minutos apresentando o trabalho realizado, no qual cada integrante deve dizer seu nome e apresentar uma parte do conteúdo desenvolvido, garantindo que todos participem ativamente da gravação. A ausência de participação de qualquer membro resultará em penalização na nota final desta etapa. Recomenda-se que o grupo elabore previamente um roteiro para organizar a ordem das falas, distribuir o tempo de forma equilibrada e assegurar que todos os tópicos relevantes sejam apresentados de maneira clara e objetiva.
-
-- Integrante 1: Introdução e Problema
-- Integrante 2: Questão de Pesquisa e Objetivos
-- Integrante 3: Justificativa e Público-Alvo
-- Integrante 4: Estado da Arte
-- Integrante 5: Dataset e Extração
-- Integrante 6: Canvas Analítico e Solução
 
 # Referências
 
