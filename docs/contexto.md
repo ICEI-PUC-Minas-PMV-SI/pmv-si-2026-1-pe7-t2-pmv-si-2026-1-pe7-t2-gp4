@@ -46,72 +46,68 @@ A escolha de dados do DataSUS justifica-se pela soberania e fidelidade das infor
 
 Nesta seção, descrevemos abordagens da literatura que utilizam Ciência de Dados para enfrentar o absenteísmo na saúde pública, com foco em dados brasileiros e métodos de otimização de agendas.
 
-### **1. Predição de No-Show em Minas Gerais via SIA/SUS**
+### 1. Framework de Análise de Decisão para No-Shows (Deina, 2024)
+Problema e contexto: O estudo abordou a previsão de não comparecimentos a consultas médicas ambulatoriais para mitigar os impactos das faltas no sistema, como o desperdício de recursos e a necessidade de estratégias de overbooking.
 
-**Problema e contexto:** Investigar o impacto da pandemia de COVID-19 no absenteísmo em consultas especializadas em municípios de Minas Gerais.
+Dados (dataset): Utilizou bancos de dados estruturados e desbalanceados da área médica, focando na identificação de padrões de comportamento de pacientes.
 
-**Dados:** Microdados do SIA/SUS (DataSUS), período 2020-2022. Variáveis incluem idade, sexo, especialidade médica e distância do município de residência.
+Abordagem/algoritmos: Explorou o uso de algoritmos avançados, especificamente a Symbolic Regression (SR) como modelo de previsão e a técnica Instance Hardness Threshold (IHT) como estratégia de balanceamento de dados.
 
-**Abordagem/algoritmos:** Random Forest e Regressão Logística.
+Métricas de avaliação: O foco foi garantir a generalização dos resultados em situações do mundo real e reduzir o viés nos conjuntos de calibração e validação.
 
-**Métricas de avaliação:** Acurácia e AUC-ROC (para medir a capacidade de distinção entre quem vai e quem falta).
+Resultados: A aplicação da técnica IHT melhorou a precisão na previsão dos no-shows, fortalecendo a interpretabilidade dos resultados para apoio à decisão médica.
 
-**Resultados:** O modelo Random Forest atingiu AUC de 0.82. Concluiu-se que o represamento de demandas pós-2020 alterou o perfil de faltas, aumentando o absenteísmo em consultas agendadas com mais de 60 dias de antecedência.
+### 2. Machine Learning para No-Show no Setor de Saúde (Salazar et al., 2022)
+   
+Problema e contexto: Aplicação de técnicas de aprendizado de máquina para prever o não comparecimento de pacientes, visando otimizar a eficiência e reduzir perdas financeiras em instituições de saúde.
 
-### **2. Otimização de Agendas via Overbooking Probabilístico**
+Dados (dataset): Dataset real coletado no Centro Especializado em Reabilitação (CER II) da Univali, Santa Catarina. As variáveis incluíram códigos CID-10, dados climáticos históricos do INMET e dados regionais da AMFRI.
 
-**Problema e contexto:** Resolver a ociosidade médica em clínicas ambulatoriais através de um sistema de "agendamento excedente" baseado no risco individual do paciente.
+Abordagem/algoritmos: Implementação de modelos utilizando as bibliotecas Python Pandas e NumPy para processamento e classificação.
 
-**Dados:** 85.000 registros de agendamentos eletrônicos. Pré-processamento: Normalização de idade e codificação (One-Hot Encoding) de especialidades.
+Métricas de avaliação: Validação do modelo preditivo para a realidade local da instituição.
 
-**Abordagem/algoritmos:** XGBoost para predição e Simulação de Monte Carlo para determinar o limite de overbooking.
+Resultados: O estudo demonstrou a viabilidade de prever as faltas integrando dados de saúde com variáveis externas (como o clima), auxiliando na gestão hospitalar.
 
-**Métricas de avaliação:** Taxa de Ocupação da Agenda e Tempo Médio de Espera (MAE).
+### 3. Modelo Preditivo e Avaliação Clínica (Valero-Bover et al., 2022)
+   
+Problema e contexto: Desenvolvimento e validação clínica de um modelo preditivo para reduzir a não frequência em consultas ambulatoriais.
 
-**Resultados:** Redução de 22% na ociosidade médica com um aumento marginal de apenas 5 minutos no tempo de espera em sala, validando a estratégia de overbooking.
+Dados (dataset): Registros de consultas ambulatoriais focados no desenvolvimento de um workflow robusto.
 
-### **3. O Absenteísmo Pós-Pandemia: Uma Análise do SIA/SUS**
+Abordagem/algoritmos: Modelagem baseada em Machine Learning integrada a um processo de avaliação clínica.
 
-**Problema e contexto:** Identificar se fatores socioeconômicos pós-2020 tornaram-se preditores mais fortes de no-show.
+Métricas de avaliação: Acurácia preditiva e impacto na redução efetiva do absenteísmo após a intervenção clínica.
 
-**Dados:** DataSUS (SIA), foco na Região Sudeste, 2021-2023. Atributos: Caráter do atendimento, código do procedimento e ID do prestador.
+Resultados: O trabalho destacou que a predição deve estar aliada a uma validação clínica rigorosa para ser eficaz no ambiente hospitalar.
 
-**Abordagem/algoritmos:** Naive Bayes e K-Nearest Neighbors (KNN).
+### 4. Análise de Variáveis em Hospital Terciário (Baptista et al., 2023)
+   
+Problema e contexto: Estudo transversal para analisar variáveis relacionadas ao agendamento de consultas que resultaram em no-show em ambulatórios de um hospital de alta complexidade.
 
-**Métricas de avaliação:** F1-Score (devido ao desbalanceamento das classes, onde há mais presenças que faltas).
+Dados (dataset): Base de dados de um hospital terciário, analisando o comportamento dos pacientes agendados.
 
-**Resultados:** O Naive Bayes mostrou-se eficiente para triagem rápida, identificando que procedimentos de alta complexidade em MG têm menor taxa de falta que consultas básicas.
+Abordagem/algoritmos: Análise estatística transversal das causas de ausência.
 
-### **4. Impacto dos Consórcios Intermunicipais de Saúde em MG**
+Métricas de avaliação: Frequência de recebimento de mensagens de lembrete e tempo de espera entre agendamento e consulta.
 
-**Problema e contexto:** O absenteísmo no transporte de pacientes entre cidades pequenas de MG e polos de saúde.
+Resultados: Identificou-se que 49,8% dos pacientes não receberam lembretes e que tempos de espera longos (180 a 365 dias para 36,6% dos casos) são fatores críticos que aumentam o no-show.
 
-**Dados:** Registros administrativos de Consórcios Intermunicipais de Saúde (2020-2024).
+### 5. Estratégia "Faltômetro" na Atenção Básica (Silva et al., 2021)
+Problema e contexto: Enfrentamento do absenteísmo recorrente na Atenção Básica através de uma ferramenta de monitoramento e diálogo.
 
-**Abordagem/algoritmos:** Árvores de Decisão (C4.5).
+Dados (dataset): Relato de experiência coletando dados de agendamentos em unidades de saúde primária.
 
-**Métricas de avaliação:** Precisão e Recall.
+Abordagem/algoritmos: Criação do "Faltômetro", uma ferramenta visual e pedagógica para consolidar as faltas e promover debates em salas de espera.
 
-**Resultados:** Demonstrou que a falta de confirmação em 48h antes da viagem é o principal preditor de falta, sugerindo que o overbooking deveria ser aplicado especificamente para pacientes locais.
+Métricas de avaliação: Impacto qualitativo na percepção de profissionais e usuários sobre as causas das faltas.
 
-### **5. Uso de BERTimbau para Análise de Motivação de Faltas**
-
-**Problema e contexto:** Classificar justificativas textuais de pacientes para faltas em exames e consultas.
-
-**Dados:** Logs de sistemas de atendimento e mensagens de texto (anonimizados).
-
-**Abordagem/algoritmos:** LLM (BERTimbau - BERT para português).
-
-**Métricas de avaliação:** Acurácia e Matriz de Confusão.
-
-**Resultados:** Alcançou 89% de precisão na classificação de motivos (transporte, esquecimento, melhora do sintoma), servindo de base para ajustar pesos no modelo de predição de overbooking.
+Resultados: A estratégia foi eficaz para reduzir a culpabilização do usuário e permitiu entender que o absenteísmo na atenção básica requer um diálogo horizontal e educação em saúde para ser mitigado.
 
 ## Texto-síntese Crítico
-Os estudos analisados concordam que o absenteísmo é um problema multifatorial e que o uso de modelos preditivos supera amplamente a gestão intuitiva de agendas. Há um consenso de que variáveis temporais (tempo de espera entre marcação e consulta) e geográficas (deslocamento do paciente) são os preditores mais robustos no cenário brasileiro. Contudo, divergem quanto ao algoritmo ideal: enquanto modelos de árvore (Random Forest/XGBoost) apresentam maior acurácia para dados tabulares, modelos estatísticos simples como Naive Bayes oferecem maior transparência para implementação em sistemas públicos legados.
-
-As principais lacunas identificadas residem na ausência de aplicações práticas que integrem a predição diretamente com a ação de overbooking automático no SUS. A maioria dos estudos limita-se a "prever o problema", mas poucos propõem a "solução operacional" baseada em margens de segurança para evitar superlotação. Além disso, há carência de estudos que considerem as mudanças comportamentais do paciente mineiro especificamente após a reestruturação dos fluxos do DataSUS em 2020.
-
-Este projeto alinha-se aos estudos identificados ao utilizar a base oficial do DataSUS (SIA/SUS), mas inova ao focar no estado de Minas Gerais com um recorte temporal atualizado (pós-2020) e ao propor o Overbooking Inteligente como ferramenta de intervenção direta, preenchendo a lacuna entre a análise de dados e a eficiência operacional da ponta do atendimento.
+Os estudos recentes concordam que o absenteísmo é um problema multifatorial que não depende apenas da vontade do paciente, mas de falhas nos processos de comunicação (como a falta de lembretes) e barreiras estruturais, como longos tempos de espera. Tecnicamente, há um consenso de que lidar com dados desbalanceados é o maior desafio para a IA nesta área, exigindo técnicas específicas como IHT ou Symbolic Regression para garantir que os modelos não sejam tendenciosos e consigam de fato identificar quem irá faltar.
+Divergências surgem no foco da solução: enquanto trabalhos como os de Salazar (2022) e Deina (2024) buscam a sofisticação algorítmica para prever o comportamento, abordagens como o "Faltômetro" (2021) focam na humanização e na reorganização institucional como forma de resolver a raiz do problema. Permanece a lacuna de integrar essas duas pontas: modelos de IA que não apenas prevejam a falta, mas que sugiram intervenções personalizadas (socioeconômicas ou clínicas) integradas ao workflow dos profissionais de saúde.
+Seu projeto se alinha a esta tendência ao buscar identificar no-shows com IA, posicionando-se na fronteira tecnológica de aprimorar a tomada de decisão. A literatura atual sugere que o sucesso de sua solução dependerá da capacidade de equilibrar a robustez preditiva com a interpretabilidade, permitindo que gestores compreendam por que o paciente está faltando para agir preventivamente de forma eficaz.
 
 # Descrição do _dataset_ selecionado
 
@@ -167,12 +163,14 @@ BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **
 
 BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **TABNET: Produção Ambulatorial do SUS - Minas Gerais**. Brasília, DF: Ministério da Saúde, 2026. Disponível em: http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sia/cnv/pamm.def. Acesso em: 6 mar. 2026.
 
-MINAS GERAIS. Secretaria de Estado de Saúde. **Relatório de Eficiência dos Consórcios Intermunicipais de Saúde: 2020-2024**. Belo Horizonte: SES-MG, 2024.
+BAPTISTA, S. C. P. D. et al. Estudo transversal sobre ausências de pacientes em consultas médicas agendadas em ambulatórios de hospital terciário. Enfermagem em Foco, v. 14, 2023.
 
-OLIVEIRA, M.; LIMA, R. Otimização de agendas médicas ambulatoriais via overbooking probabilístico e simulação de Monte Carlo. **Revista Brasileira de Informática em Saúde**, São Paulo, v. 15, n. 1, p. 112-128, 2022.
+CESÁRIO, I. R. A redução do absenteísmo de usuários em consultas de especialidades no SUS: a experiência de um instituto de referência no Rio de Janeiro. Dissertação, 2022.
 
-REIS, F. et al. Uso de modelos de linguagem (BERTimbau) para classificação de motivos de absenteísmo no SUS. **Journal of Health Informatics**, São Paulo, v. 16, n. 3, p. 89-102, set. 2024.
+DEINA, C. Aprimorando a Tomada de Decisão em Saúde com Aprendizado de Máquina em Problemas de Classificação em Dados Desbalanceados. Tese (Doutorado em Engenharia de Produção) – UFRGS, Porto Alegre, 2024.
 
-SANTOS, L. R. et al. Impacto da pandemia de COVID-19 no absenteísmo em consultas especializadas em Minas Gerais. **Revista de Saúde Pública de Minas Gerais**, Belo Horizonte, v. 14, n. 2, p. 45-60, 2022.
+SALAZAR, L. H. A. et al. Application of Machine Learning Techniques to Predict a Patient’s No-Show in the Healthcare Sector. Future Internet, v. 14, n. 3, 2022.
 
-SILVA, A. C. O absenteísmo pós-pandemia: uma análise preditiva na região Sudeste via SIA/SUS. **Cadernos de Saúde Pública**, Rio de Janeiro, v. 39, n. 4, e001234, 2023.
+SILVA, M. T. A. et al. “Faltômetro”: Estratégia para o enfrentamento do absenteísmo no âmbito da Atenção Básica. Revista Ciência Plural, v. 7, n. 2, p. 163–176, 2021.
+
+VALERO-BOVER, D. et al. Reducing non-attendance in outpatient appointments: predictive model development, validation, and clinical assessment. BMC Health Services Research, v. 22, n. 1, 2022.
