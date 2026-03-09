@@ -146,7 +146,9 @@ Ele poderá (e deverá) ser revisitado e atualizado ao longo do projeto, já que
 
 # Vídeo de apresentação da Etapa 01
 
+https://github.com/user-attachments/assets/5b4ee673-05fd-4804-ae8a-b4e0c0768aae
 
+Link para visualização no Canva: https://www.canva.com/design/DAHDYPWw9Rs/lucNj4ItcmS5YbRZxTQaqA/watch?utm_content=DAHDYPWw9Rs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8fae076eae 
 
 # Referências
 
