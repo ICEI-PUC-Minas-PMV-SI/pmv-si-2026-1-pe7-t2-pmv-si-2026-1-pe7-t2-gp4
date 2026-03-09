@@ -1,46 +1,40 @@
 # Introdução
 
-Este projeto apresenta uma proposta de otimização para a gestão de agendas no Sistema Único de Saúde (SUS), focando no absenteísmo em consultas especializadas no estado de **Minas Gerais**. Utilizando dados oficiais do **DataSUS (SIA/SUS) a partir do ano de 2020**, o trabalho propõe a aplicação de modelos de Aprendizado de Máquina para fundamentar uma estratégia de **overbooking dinâmico**. O objetivo é maximizar a ocupação das agendas médicas, garantindo que ociosidades previstas em um contexto pós-pandêmico sejam compensadas por agendamentos excedentes, acelerando o atendimento da população mineira.
+Este projeto apresenta uma proposta de otimização para a gestão de agendas no Sistema Único de Saúde (SUS), focando no absenteísmo (*no-show*) em consultas médicas. Utilizando o dataset **"Medical Appointment No Shows" (Kaggle)**, que contém mais de 110 mil registros históricos de consultas da cidade de Vitória (Espírito Santo), o trabalho propõe a aplicação de modelos de Aprendizado de Máquina para prever a probabilidade de falta de pacientes e fundamentar uma estratégia de **overbooking dinâmico e inteligente**. O objetivo é maximizar a ocupação das agendas médicas, garantindo que ociosidades previstas sejam compensadas por agendamentos excedentes de forma segura, acelerando a fila de espera da população.
 
 ## Problema
 
-O problema central é a ineficiência causada pelo absenteísmo em consultas agendadas, que gera ociosidade de médicos e infraestrutura em Minas Gerais.
+O problema central é a ineficiência causada pelo absenteísmo em consultas agendadas, que gera ociosidade de médicos e desperdício de infraestrutura na rede pública de saúde.
 
-- **Contexto Regional:** O estado possui uma vasta rede de atendimento, mas sofre com disparidades regionais e filas de espera que se acumularam após o período crítico da pandemia de 2020.
-
-- **Impacto:** Horários vagos que poderiam ser utilizados por pacientes em filas de espera de especialidades críticas (como cardiologia e oncologia).
-
-- **Foco Temporal:** A partir de 2020, o comportamento de comparecimento mudou drasticamente devido à telemedicina e aos novos protocolos de saúde, tornando dados antigos obsoletos para predição atual.
+- **Contexto:** O sistema de saúde sofre com altas taxas de não comparecimento. Ao contrário de dados agregados, a previsão de faltas depende do comportamento individual e de barreiras logísticas ou de comunicação.
+- **Impacto:** Horários vagos que poderiam ser utilizados por pacientes que aguardam meses em filas de espera para especialidades críticas não são aproveitados.
+- **Fatores Agravantes:** A falta de lembretes (SMS) e o longo tempo de espera entre a data de marcação e a data da consulta são apontados como os maiores causadores da evasão.
 
 ## Questão de pesquisa
 
-Como modelos de aprendizado de máquina podem fundamentar uma política de overbooking inteligente nas unidades de saúde de Minas Gerais, considerando as mudanças no perfil de comparecimento dos pacientes desde 2020?
+Qual a probabilidade de um paciente faltar a uma consulta agendada, com base em seu perfil e histórico, e como podemos utilizar essa predição de modelos de *Machine Learning* para aplicar uma margem de *overbooking* seguro nas unidades de saúde?
 
 ## Objetivos preliminares
 
-O objetivo geral é experimentar modelos de aprendizado de máquina adequados para prever o risco de no-show no cenário mineiro pós-2020 e propor uma gestão de agenda resiliente.
+O objetivo geral é experimentar modelos de aprendizado de máquina adequados para prever o risco individual de *no-show* e propor um sistema de recomendação de vagas excedentes (overbooking) para as recepções das unidades.
 
 ### Objetivos específicos:
 
-- Extrair e filtrar dados do SIA/SUS (DataSUS) focados no estado de Minas Gerais (2020-2026);
-
-- Comparar o desempenho de algoritmos de classificação para identificar o "padrão de falta" do paciente mineiro atual;
-
-- Desenvolver um modelo de overbooking que ajuste a oferta de vagas extras conforme o risco sazonal e regional detectado nos dados.
+- Realizar a Análise Exploratória e *Feature Engineering* na base de dados (ex: calcular a diferença em dias entre a marcação e a consulta);
+- Comparar o desempenho de algoritmos de classificação (como Random Forest e Regressão Logística) focando em alta precisão para evitar falsos positivos;
+- Desenvolver a "lógica de negócio" do overbooking, que calculará o limite de pacientes extras que podem ser chamados por dia sem causar superlotação na sala de espera.
 
 ## Justificativa
 
-A escolha de dados do DataSUS justifica-se pela soberania e fidelidade das informações oficiais do governo brasileiro.
+A escolha do dataset do Kaggle justifica-se pela granularidade dos dados. Diferente de bases de faturamento, essa base contém informações a nível do **paciente** (idade, comorbidades, recebimento de SMS, tempo de espera).
 
-- **Relevância:** Focar em MG permite uma análise direcionada às necessidades locais, como a logística de transporte intermunicipal de pacientes.
-
-- **Impacto:** Dados pós-2020 refletem a realidade atual do sistema de saúde pós-crise sanitária. Minimizar a ociosidade médica em Minas Gerais tem um impacto direto na redução da fila de espera de exames e consultas de alta complexidade.
+- **Relevância:** Lidar com dados comportamentais permite que a solução não apenas preveja a falta, mas ajude o gestor a entender o *motivo* da falta.
+- **Impacto:** Transformar a predição passiva em uma ação corretiva ativa (o *overbooking*). Zerar a ociosidade médica diminui o custo por atendimento e aumenta drasticamente a produtividade da atenção básica e especializada.
 
 ## Público-Alvo
 
-- **Secretaria de Estado de Saúde de Minas Gerais (SES-MG) e Gestores Municipais:** Decisores que precisam otimizar o uso do teto financeiro e aumentar a produtividade das unidades.
-
-- **Profissionais de Regulação de Minas:** Usuários que operam o agendamento de consultas entre municípios (Consórcios de Saúde), buscando reduzir o impacto de faltas em viagens de pacientes.
+- **Secretarias Municipais de Saúde e Coordenadores de UBS:** Decisores que precisam otimizar o uso do tempo médico e aumentar a capacidade de atendimento sem contratar mais profissionais.
+- **Recepcionistas e Atendentes de Regulação:** Usuários finais que utilizarão o painel/dashboard para saber exatamente quantos pacientes a mais podem agendar na grade do dia seguinte.
 
 ## Estado da arte
 
@@ -58,7 +52,7 @@ Métricas de avaliação: O foco foi garantir a generalização dos resultados e
 Resultados: A aplicação da técnica IHT melhorou a precisão na previsão dos no-shows, fortalecendo a interpretabilidade dos resultados para apoio à decisão médica.
 
 ### 2. Machine Learning para No-Show no Setor de Saúde (Salazar et al., 2022)
-   
+   
 Problema e contexto: Aplicação de técnicas de aprendizado de máquina para prever o não comparecimento de pacientes, visando otimizar a eficiência e reduzir perdas financeiras em instituições de saúde.
 
 Dados (dataset): Dataset real coletado no Centro Especializado em Reabilitação (CER II) da Univali, Santa Catarina. As variáveis incluíram códigos CID-10, dados climáticos históricos do INMET e dados regionais da AMFRI.
@@ -70,7 +64,7 @@ Métricas de avaliação: Validação do modelo preditivo para a realidade local
 Resultados: O estudo demonstrou a viabilidade de prever as faltas integrando dados de saúde com variáveis externas (como o clima), auxiliando na gestão hospitalar.
 
 ### 3. Modelo Preditivo e Avaliação Clínica (Valero-Bover et al., 2022)
-   
+   
 Problema e contexto: Desenvolvimento e validação clínica de um modelo preditivo para reduzir a não frequência em consultas ambulatoriais.
 
 Dados (dataset): Registros de consultas ambulatoriais focados no desenvolvimento de um workflow robusto.
@@ -82,7 +76,7 @@ Métricas de avaliação: Acurácia preditiva e impacto na redução efetiva do 
 Resultados: O trabalho destacou que a predição deve estar aliada a uma validação clínica rigorosa para ser eficaz no ambiente hospitalar.
 
 ### 4. Análise de Variáveis em Hospital Terciário (Baptista et al., 2023)
-   
+   
 Problema e contexto: Estudo transversal para analisar variáveis relacionadas ao agendamento de consultas que resultaram em no-show em ambulatórios de um hospital de alta complexidade.
 
 Dados (dataset): Base de dados de um hospital terciário, analisando o comportamento dos pacientes agendados.
@@ -111,63 +105,56 @@ Seu projeto se alinha a esta tendência ao buscar identificar no-shows com IA, p
 
 # Descrição do _dataset_ selecionado
 
-Nesta seção, é detalhado o conjunto de dados que servirá de base para o modelo de Overbooking Inteligente, focado na eficiência ambulatorial em Minas Gerais.
+Nesta seção, é detalhado o conjunto de dados que servirá de base para o modelo preditivo e para a estratégia de Overbooking Inteligente.
 
 ## Identificação e origem
-Nome: Produção Ambulatorial do SUS (SIA/SUS) - Minas Gerais.
-
-Fonte: Ministério da Saúde / DATASUS - portal TABNET.
-
-Link de acesso: TABNET - Produção Ambulatorial
-
-Licença de uso: Dados abertos de uso público (Lei de Acesso à Informação).
+- **Nome:** Medical Appointment No Shows
+- **Fonte:** Portal Kaggle (Dados originais da Prefeitura de Vitória, Espírito Santo).
+- **Link de acesso:** [Kaggle - Medical Appointment No Shows](https://www.kaggle.com/datasets/joniarroba/noshowappointments/data)
+- **Licença de uso:** Dados abertos de uso público / CC0: Public Domain.
 
 ## Visão geral
-Total de registros: Estimado em mais de 1.500 linhas de dados agregados (cruzamento por macrorregião, complexidade e período).
+- **Total de registros:** 110.527 linhas (consultas médicas).
+- **Contextualização:** O dataset mapeia o agendamento de consultas na rede pública de saúde da capital capixaba. O grande diferencial desta base é focar em características do paciente e da marcação, informando se ele possui condições crônicas, se está em programas sociais, se recebeu aviso por SMS e, por fim, se compareceu ou não à consulta.
 
-Período coberto: Janeiro de 2020 a Dezembro de 2025 (projeções baseadas em competências processadas).
+## Atributos Principais
+A tabela abaixo descreve os campos mais relevantes para a nossa análise:
 
-Contextualização: O dataset agrupa a produção de saúde em Minas Gerais após o marco da pandemia de COVID-19. Ele não foca no paciente individual (LGPD), mas na eficiência operacional das unidades, comparando o que foi solicitado pelo gestor versus o que foi efetivamente executado.
-
-## Atributos
-A tabela abaixo descreve os campos selecionados após o cruzamento multidimensional no portal:
-| Nome do Atributo | Descrição | Tipo | Unidade | Exemplos |
-| :--- | :--- | :--- | :--- | :--- |
-| Macrorregião de Saúde | Região administrativa de saúde em MG | String | Localidade | Centro, Sul |
-| Complexidade | Nível tecnológico do procedimento | String | Categoria | Média Complexidade |
-| Caráter Atendiment | Natureza da consulta/exame | String | Categoria | Eletivo, Urgência |
-| Grupo Procedimento | Tipo de ação de saúde realizada | String | Categoria | 03 Procedimentos Clínicos |
-| Mês/Ano | Competência cronológica do dado | Date | Mês/Ano | Jan/2020, Out/2025 |
-| Qtd.apresentada | Quantidade de atendimentos agendados | Int | Unidades | 1500, 240, 50 |
-| Qtd.aprovada | Quantidade de atendimentos realizados | Int | Unidades | 1200, 200, 45 |
+| Nome do Atributo | Descrição | Tipo | Exemplos |
+| :--- | :--- | :--- | :--- |
+| **PatientId** | Identificador único do paciente | Float | 2.987250e+13 |
+| **ScheduledDay** | Data e hora em que a consulta foi marcada | DateTime | 2016-04-29T18:38:08Z |
+| **AppointmentDay** | Data em que a consulta vai acontecer | DateTime | 2016-04-29T00:00:00Z |
+| **Age** | Idade do paciente | Int | 62, 18, 5 |
+| **Neighbourhood** | Bairro onde a consulta ocorrerá | String | JARDIM DA PENHA |
+| **Scholarship** | Indica se o paciente recebe Bolsa Família (0 = Não, 1 = Sim) | Int (Booleano) | 0, 1 |
+| **Hipertension / Diabetes** | Indica presença de comorbidades crônicas | Int (Booleano) | 0, 1 |
+| **SMS_received** | Indica se 1 ou mais mensagens SMS de lembrete foram enviadas | Int | 0, 1 |
+| **No-show** | Variável Alvo (Target). 'No' (Não faltou/Compareceu) ou 'Yes' (Faltou) | String | No, Yes |
 
 ## Qualidade dos dados
-- Valores Faltantes: Baixa incidência, pois são dados de faturamento obrigatório. Registros rotulados como "Ignorado" serão descartados no pré-processamento.
-- Inconsistências: Pode haver divergência temporal entre a data do atendimento e o mês de processamento (competência). O grupo utilizará a data de competência como referência padrão.
-- Duplicatas: Por ser uma base agregada pelo TABNET, não há risco de duplicatas de registros individuais, apenas linhas repetidas caso a extração seja feita por múltiplos filtros sobrepostos.
-- Outliers: Espera-se encontrar quedas bruscas (anomalias) na Qtd.aprovada durante os picos da pandemia (2020-2021). Esses dados serão tratados para não enviesar o modelo de overbooking em períodos de normalidade.
+- **Valores Faltantes (Nulls):** O dataset original é muito limpo e não apresenta valores nulos em suas colunas principais.
+- **Inconsistências Temporais:** Algumas datas de marcação (`ScheduledDay`) aparecem no futuro em relação à data da consulta (`AppointmentDay`), o que representa um erro de digitação do sistema e precisará ser filtrado.
+- **Outliers:** A coluna idade (`Age`) possui ao menos um registro com valor negativo (-1) e idades extremamente avançadas (acima de 110 anos), que deverão ser tratados no pré-processamento.
+- **Feature Engineering:** Será necessário criar uma nova variável calculando a diferença em dias entre `ScheduledDay` e `AppointmentDay`, pois a literatura indica que esta é a variável preditora mais forte para o *no-show*.
 
 # Canvas analítico
-Para guiar visualmente alinhando expectativas e direcionando o desenvolvimento do projeto, segue abaixo o Canvas Analítico. 
+Para guiar visualmente, alinhando expectativas e direcionando o desenvolvimento do projeto, segue abaixo o Canvas Analítico. 
 Ele poderá (e deverá) ser revisitado e atualizado ao longo do projeto, já que como o projeto se encontra em uma etapa inicial, é aceitável trabalhar com hipóteses ou estimativas, desde que sejam coerentes com o problema e o contexto definidos.
 
 <img width="1084" height="767" alt="image" src="https://github.com/user-attachments/assets/e8965fe3-e772-44d1-8b39-5d49469e8042" />
 
 # Vídeo de apresentação da Etapa 01
 
-Nesta etapa, o grupo deverá produzir um vídeo de 5 a 8 minutos apresentando o trabalho realizado, no qual cada integrante deve dizer seu nome e apresentar uma parte do conteúdo desenvolvido, garantindo que todos participem ativamente da gravação. A ausência de participação de qualquer membro resultará em penalização na nota final desta etapa. Recomenda-se que o grupo elabore previamente um roteiro para organizar a ordem das falas, distribuir o tempo de forma equilibrada e assegurar que todos os tópicos relevantes sejam apresentados de maneira clara e objetiva.
+
 
 # Referências
 
-BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **Sistema de Informações Ambulatoriais do SUS (SIA/SUS)**. Brasília, DF: Ministério da Saúde, 2026. Disponível em: https://datasus.saude.gov.br/transferencia-de-arquivos/. Acesso em: 6 mar. 2026.
-
-BRASIL. Ministério da Saúde. Departamento de Informática do SUS (DATASUS). **TABNET: Produção Ambulatorial do SUS - Minas Gerais**. Brasília, DF: Ministério da Saúde, 2026. Disponível em: http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sia/cnv/pamm.def. Acesso em: 6 mar. 2026.
-
 BAPTISTA, S. C. P. D. et al. Estudo transversal sobre ausências de pacientes em consultas médicas agendadas em ambulatórios de hospital terciário. Enfermagem em Foco, v. 14, 2023.
 
-CESÁRIO, I. R. A redução do absenteísmo de usuários em consultas de especialidades no SUS: a experiência de um instituto de referência no Rio de Janeiro. Dissertação, 2022.
-
 DEINA, C. Aprimorando a Tomada de Decisão em Saúde com Aprendizado de Máquina em Problemas de Classificação em Dados Desbalanceados. Tese (Doutorado em Engenharia de Produção) – UFRGS, Porto Alegre, 2024.
+
+KAGGLE. **Medical Appointment No Shows**. Disponível em: https://www.kaggle.com/datasets/joniarroba/noshowappointments/data. Acesso em: mar. 2026.
 
 SALAZAR, L. H. A. et al. Application of Machine Learning Techniques to Predict a Patient’s No-Show in the Healthcare Sector. Future Internet, v. 14, n. 3, 2022.
 
