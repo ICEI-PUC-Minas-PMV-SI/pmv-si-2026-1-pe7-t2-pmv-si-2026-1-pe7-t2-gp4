@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Eficiência do Projeto
 
 `CURSO: Sistemas de Informação`
 
@@ -6,16 +6,18 @@
 
 `SEMESTRE: 7º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto em desenvolvimento propõe uma solução baseada em Ciência de Dados e Inteligência Artificial para mitigar um dos maiores problemas de eficiência do Sistema Único de Saúde (SUS): o alto índice de absenteísmo (*no-show*) em consultas médicas. Utilizando o dataset "Medical Appointment No Shows" do Kaggle, composto por mais de 110 mil registros reais da cidade de Vitória (ES), o trabalho visa treinar modelos de *Machine Learning* capazes de prever a probabilidade individual de um paciente faltar ao seu agendamento, analisando comportamentos e variáveis como tempo de espera, idade e recebimento de lembretes por SMS.
+
+A partir dessas predições, o projeto avança da análise passiva para a ação corretiva através de uma estratégia de **overbooking dinâmico e inteligente**. O objetivo final é criar uma ferramenta ou painel que recomende, com segurança e alta precisão, o número ideal de pacientes excedentes a serem agendados diariamente. Dessa forma, busca-se zerar a ociosidade dos profissionais de saúde, otimizar os recursos públicos e acelerar o atendimento da população que aguarda nas filas de espera, sem o risco de causar superlotação nas recepções das unidades.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+- Daniela Sofia Fernandes de Assis
+- Gabriel Amorim Santos Maia
+- Guilherme Lanza Japolino
+- João Gabriel Galdino de Oliveira
+- Tales Hein
+- Lucas Brandão Guedes
 
 ## Orientador
 
