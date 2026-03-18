@@ -20,9 +20,11 @@ O objetivo geral é experimentar modelos de aprendizado de máquina adequados pa
 
 ### Objetivos específicos:
 
-- Realizar a Análise Exploratória e *Feature Engineering* na base de dados (ex: calcular a diferença em dias entre a marcação e a consulta);
-- Comparar o desempenho de algoritmos de classificação (como Random Forest e Regressão Logística) focando em alta precisão para evitar falsos positivos;
-- Desenvolver a "lógica de negócio" do overbooking, que calculará o limite de pacientes extras que podem ser chamados por dia sem causar superlotação na sala de espera.
+- Desenvolver um modelo preditivo de risco de absenteísmo utilizando técnicas de Aprendizado de Máquina, capaz de estimar a probabilidade individual de não comparecimento às consultas;
+- Construir um conjunto de variáveis derivadas (features) relevantes, incorporando características clínicas, sociais e comportamentais dos pacientes para aprimorar o desempenho do modelo;
+- Implementar um mecanismo de overbooking inteligente, baseado na previsão de no-show, permitindo definir limites seguros de agendamentos excedentes para cada dia ou especialidade;
+- Criar um protótipo de sistema ou dashboard operacional (frontend) para apoiar recepcionistas e gestores na visualização das estimativas de absenteísmo e das recomendações de vagas adicionais;
+- Avaliar o impacto potencial do overbooking baseado em IA na ocupação das agendas médicas, comparando cenários com e sem a aplicação do modelo.
 
 ## Justificativa
 
