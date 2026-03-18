@@ -50,66 +50,6 @@ Por outro lado, Silva et al. (2021) abordam o absenteísmo a partir de uma persp
 
 Ao relacionar os estudos revisados ao presente trabalho, observa-se que, embora diferentes em abordagem, todos convergem para a compreensão de que o absenteísmo é um problema multifatorial que exige soluções integradas. As pesquisas baseadas em Machine Learning (Deina, 2024; Salazar et al., 2022; Valero‑Bover et al., 2022) oferecem avanços importantes na predição das ausências, mas não apresentam mecanismos para utilização prática das previsões no planejamento das agendas. Já os estudos focados em análises de fatores e intervenções educativas (Baptista et al., 2023; Silva et al., 2021) contribuem para identificar elementos críticos do comportamento do paciente, mas deixam de lado a automação e o apoio à decisão. Assim, o presente projeto se diferencia ao integrar elementos de ambas as abordagens, propondo um sistema que utiliza predições de no-show para fundamentar uma estratégia de overbooking seguro, preenchendo uma lacuna na literatura ao transformar a previsão em ação operacional concreta dentro da rotina das unidades de saúde.
 
-Nesta seção, descrevemos abordagens da literatura que utilizam Ciência de Dados para enfrentar o absenteísmo na saúde pública, com foco em dados brasileiros e métodos de otimização de agendas.
-
-### 1. Framework de Análise de Decisão para No-Shows (Deina, 2024)
-Problema e contexto: O estudo abordou a previsão de não comparecimentos a consultas médicas ambulatoriais para mitigar os impactos das faltas no sistema, como o desperdício de recursos e a necessidade de estratégias de overbooking.
-
-Dados (dataset): Utilizou bancos de dados estruturados e desbalanceados da área médica, focando na identificação de padrões de comportamento de pacientes.
-
-Abordagem/algoritmos: Explorou o uso de algoritmos avançados, especificamente a Symbolic Regression (SR) como modelo de previsão e a técnica Instance Hardness Threshold (IHT) como estratégia de balanceamento de dados.
-
-Métricas de avaliação: O foco foi garantir a generalização dos resultados em situações do mundo real e reduzir o viés nos conjuntos de calibração e validação.
-
-Resultados: A aplicação da técnica IHT melhorou a precisão na previsão dos no-shows, fortalecendo a interpretabilidade dos resultados para apoio à decisão médica.
-
-### 2. Machine Learning para No-Show no Setor de Saúde (Salazar et al., 2022)
-   
-Problema e contexto: Aplicação de técnicas de aprendizado de máquina para prever o não comparecimento de pacientes, visando otimizar a eficiência e reduzir perdas financeiras em instituições de saúde.
-
-Dados (dataset): Dataset real coletado no Centro Especializado em Reabilitação (CER II) da Univali, Santa Catarina. As variáveis incluíram códigos CID-10, dados climáticos históricos do INMET e dados regionais da AMFRI.
-
-Abordagem/algoritmos: Implementação de modelos utilizando as bibliotecas Python Pandas e NumPy para processamento e classificação.
-
-Métricas de avaliação: Validação do modelo preditivo para a realidade local da instituição.
-
-Resultados: O estudo demonstrou a viabilidade de prever as faltas integrando dados de saúde com variáveis externas (como o clima), auxiliando na gestão hospitalar.
-
-### 3. Modelo Preditivo e Avaliação Clínica (Valero-Bover et al., 2022)
-   
-Problema e contexto: Desenvolvimento e validação clínica de um modelo preditivo para reduzir a não frequência em consultas ambulatoriais.
-
-Dados (dataset): Registros de consultas ambulatoriais focados no desenvolvimento de um workflow robusto.
-
-Abordagem/algoritmos: Modelagem baseada em Machine Learning integrada a um processo de avaliação clínica.
-
-Métricas de avaliação: Acurácia preditiva e impacto na redução efetiva do absenteísmo após a intervenção clínica.
-
-Resultados: O trabalho destacou que a predição deve estar aliada a uma validação clínica rigorosa para ser eficaz no ambiente hospitalar.
-
-### 4. Análise de Variáveis em Hospital Terciário (Baptista et al., 2023)
-   
-Problema e contexto: Estudo transversal para analisar variáveis relacionadas ao agendamento de consultas que resultaram em no-show em ambulatórios de um hospital de alta complexidade.
-
-Dados (dataset): Base de dados de um hospital terciário, analisando o comportamento dos pacientes agendados.
-
-Abordagem/algoritmos: Análise estatística transversal das causas de ausência.
-
-Métricas de avaliação: Frequência de recebimento de mensagens de lembrete e tempo de espera entre agendamento e consulta.
-
-Resultados: Identificou-se que 49,8% dos pacientes não receberam lembretes e que tempos de espera longos (180 a 365 dias para 36,6% dos casos) são fatores críticos que aumentam o no-show.
-
-### 5. Estratégia "Faltômetro" na Atenção Básica (Silva et al., 2021)
-Problema e contexto: Enfrentamento do absenteísmo recorrente na Atenção Básica através de uma ferramenta de monitoramento e diálogo.
-
-Dados (dataset): Relato de experiência coletando dados de agendamentos em unidades de saúde primária.
-
-Abordagem/algoritmos: Criação do "Faltômetro", uma ferramenta visual e pedagógica para consolidar as faltas e promover debates em salas de espera.
-
-Métricas de avaliação: Impacto qualitativo na percepção de profissionais e usuários sobre as causas das faltas.
-
-Resultados: A estratégia foi eficaz para reduzir a culpabilização do usuário e permitiu entender que o absenteísmo na atenção básica requer um diálogo horizontal e educação em saúde para ser mitigado.
-
 ## Texto-síntese Crítico
 Os estudos recentes concordam que o absenteísmo é um problema multifatorial que não depende apenas da vontade do paciente, mas de falhas nos processos de comunicação (como a falta de lembretes) e barreiras estruturais, como longos tempos de espera. Tecnicamente, há um consenso de que lidar com dados desbalanceados é o maior desafio para a IA nesta área, exigindo técnicas específicas como IHT ou Symbolic Regression para garantir que os modelos não sejam tendenciosos e consigam de fato identificar quem irá faltar.
 Divergências surgem no foco da solução: enquanto trabalhos como os de Salazar (2022) e Deina (2024) buscam a sofisticação algorítmica para prever o comportamento, abordagens como o "Faltômetro" (2021) focam na humanização e na reorganização institucional como forma de resolver a raiz do problema. Permanece a lacuna de integrar essas duas pontas: modelos de IA que não apenas prevejam a falta, mas que sugiram intervenções personalizadas (socioeconômicas ou clínicas) integradas ao workflow dos profissionais de saúde.
