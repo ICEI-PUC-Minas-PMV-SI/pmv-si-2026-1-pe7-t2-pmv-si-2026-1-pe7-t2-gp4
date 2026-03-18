@@ -188,5 +188,3 @@ Disponível em: https://periodicos.ufrn.br/rcp/article/view/22255.
 Acesso em: 18 mar. 2026.
 
 KAGGLE. **Medical Appointment No Shows**. Disponível em: https://www.kaggle.com/datasets/joniarroba/noshowappointments/data. Acesso em: mar. 2026.
-
-VALERO-BOVER, D. et al. Reducing non-attendance in outpatient appointments: predictive model development, validation, and clinical assessment. BMC Health Services Research, v. 22, n. 1, 2022.
