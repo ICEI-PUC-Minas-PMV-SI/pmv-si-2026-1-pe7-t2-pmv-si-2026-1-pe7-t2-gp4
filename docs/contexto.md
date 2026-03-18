@@ -127,10 +127,11 @@ Nesta seção, é detalhado o conjunto de dados que servirá de base para o mode
 
 ## Visão geral
 - **Total de registros:** 110.527 linhas (consultas médicas).
+- **Total de colunas (atributos):** 14 variáveis, conforme documentação oficial do dataset.
 - **Contextualização:** O dataset mapeia o agendamento de consultas na rede pública de saúde da capital capixaba. O grande diferencial desta base é focar em características do paciente e da marcação, informando se ele possui condições crônicas, se está em programas sociais, se recebeu aviso por SMS e, por fim, se compareceu ou não à consulta.
 
 ## Atributos Principais
-A tabela abaixo descreve os campos mais relevantes para a nossa análise:
+A tabela abaixo descreve apenas os campos mais relevantes para esta pesquisa, considerando que o dataset completo possui 14 atributos no total:
 
 | Nome do Atributo | Descrição | Tipo | Exemplos |
 | :--- | :--- | :--- | :--- |
