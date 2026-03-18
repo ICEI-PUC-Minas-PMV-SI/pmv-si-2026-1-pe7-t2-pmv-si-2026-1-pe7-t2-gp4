@@ -29,6 +29,7 @@ O objetivo geral é experimentar modelos de aprendizado de máquina adequados pa
 ## Justificativa
 
 O absenteísmo em consultas médicas representa um desafio significativo para o Sistema Único de Saúde, pois gera ociosidade profissional, desperdício de recursos e aumento das filas de espera. A ausência de mecanismos preditivos faz com que a gestão das agendas seja predominantemente reativa, resultando em baixa eficiência operacional.
+
 Diante desse cenário, justifica-se o desenvolvimento de uma solução baseada em Aprendizado de Máquina capaz de estimar o risco individual de não comparecimento e subsidiar estratégias de overbooking seguro. Essa abordagem permite otimizar a ocupação das agendas, ampliar o acesso aos serviços de saúde e promover o uso racional dos recursos públicos. Assim, o projeto demonstra relevância social e técnica ao alinhar inovação tecnológica com necessidades reais da gestão em saúde.
 
 ## Público-Alvo
