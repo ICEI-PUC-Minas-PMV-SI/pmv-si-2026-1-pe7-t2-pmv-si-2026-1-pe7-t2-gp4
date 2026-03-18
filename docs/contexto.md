@@ -163,15 +163,30 @@ https://github.com/user-attachments/assets/5b4ee673-05fd-4804-ae8a-b4e0c0768aae
 Link para visualização no Canva: https://www.canva.com/design/DAHDYPWw9Rs/lucNj4ItcmS5YbRZxTQaqA/watch?utm_content=DAHDYPWw9Rs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8fae076eae 
 
 # Referências
+**DEINA, Carolina.** *Aprimorando a tomada de decisão em saúde com aprendizado de máquina em problemas de classificação em dados desbalanceados.* 2024. Tese (Doutorado em Engenharia de Produção) — Universidade Federal do Rio Grande do Sul, Porto Alegre, 2024.
+Disponível em: https://lume.ufrgs.br/handle/10183/289543.  
+Acesso em: 18 mar. 2026.
 
-BAPTISTA, S. C. P. D. et al. Estudo transversal sobre ausências de pacientes em consultas médicas agendadas em ambulatórios de hospital terciário. Enfermagem em Foco, v. 14, 2023.
+**SALAZAR, Luiz Henrique A. et al.** *Application of Machine Learning Techniques to Predict a Patient’s No-Show in the Healthcare Sector.* Future Internet, v. 14, n. 1, p. 3, 2022.  
+DOI: 10.3390/fi14010003.  
+Disponível em: https://www.mdpi.com/1999-5903/14/1/3.  
+Acesso em: 18 mar. 2026.
 
-DEINA, C. Aprimorando a Tomada de Decisão em Saúde com Aprendizado de Máquina em Problemas de Classificação em Dados Desbalanceados. Tese (Doutorado em Engenharia de Produção) – UFRGS, Porto Alegre, 2024.
+**VALERO-BOVER, Damià et al.** *Reducing non-attendance in outpatient appointments: predictive model development, validation, and clinical assessment.* BMC Health Services Research, v. 22, 451, 2022.  
+DOI: 10.1186/s12913-022-07865-y.  
+Disponível em: https://link.springer.com/article/10.1186/s12913-022-07865-y.  
+Acesso em: 18 mar. 2026.
+
+**BAPTISTA, Simone Cristina Paixão Dias et al.** *Estudo transversal sobre ausências de pacientes em consultas médicas agendadas em ambulatórios de hospital terciário.* Enfermagem em Foco, v. 14, 2023.  
+DOI: 10.21675/2357-707X.2023.v14.e-202346.  
+Disponível em: https://enfermfoco.org/wp-content/uploads/articles_xml/2357-707X-enfoco-14-e-202346/2357-707X-enfoco-14-e-202346.pdf.  
+Acesso em: 18 mar. 2026.
+
+**SILVA, Maria Tatiane Alves da et al.** *“Faltômetro”: estratégia para o enfrentamento do absenteísmo no âmbito da Atenção Básica.* Revista Ciência Plural, v. 7, n. 2, p. 163–176, 2021.  
+DOI: 10.21680/2446-7286.2021v7n2ID22255.  
+Disponível em: https://periodicos.ufrn.br/rcp/article/view/22255.  
+Acesso em: 18 mar. 2026.
 
 KAGGLE. **Medical Appointment No Shows**. Disponível em: https://www.kaggle.com/datasets/joniarroba/noshowappointments/data. Acesso em: mar. 2026.
-
-SALAZAR, L. H. A. et al. Application of Machine Learning Techniques to Predict a Patient’s No-Show in the Healthcare Sector. Future Internet, v. 14, n. 3, 2022.
-
-SILVA, M. T. A. et al. “Faltômetro”: Estratégia para o enfrentamento do absenteísmo no âmbito da Atenção Básica. Revista Ciência Plural, v. 7, n. 2, p. 163–176, 2021.
 
 VALERO-BOVER, D. et al. Reducing non-attendance in outpatient appointments: predictive model development, validation, and clinical assessment. BMC Health Services Research, v. 22, n. 1, 2022.
