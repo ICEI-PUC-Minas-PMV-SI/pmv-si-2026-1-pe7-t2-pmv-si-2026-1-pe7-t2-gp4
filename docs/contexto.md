@@ -12,7 +12,7 @@ O problema central é a ineficiência causada pelo absenteísmo em consultas age
 
 ## Questão de pesquisa
 
-Qual a probabilidade de um paciente faltar a uma consulta agendada, com base em seu perfil e histórico, e como podemos utilizar essa predição de modelos de *Machine Learning* para aplicar uma margem de *overbooking* seguro nas unidades de saúde?
+Como prever o risco de no-show e utilizá-lo para definir um overbooking seguro?
 
 ## Objetivos preliminares
 
