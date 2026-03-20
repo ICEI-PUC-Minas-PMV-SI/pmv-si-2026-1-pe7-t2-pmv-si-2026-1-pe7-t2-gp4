@@ -73,17 +73,16 @@ Nesta seção, é detalhado o conjunto de dados que servirá de base para o mode
 ## Atributos Principais
 A tabela abaixo descreve apenas os campos mais relevantes para esta pesquisa, considerando que o dataset completo possui 14 atributos no total:
 
-| Nome do Atributo | Descrição | Tipo | Exemplos |
-| :--- | :--- | :--- | :--- |
-| **PatientId** | Identificador único do paciente | Float | 2.987250e+13 |
-| **ScheduledDay** | Data e hora em que a consulta foi marcada | DateTime | 2016-04-29T18:38:08Z |
-| **AppointmentDay** | Data em que a consulta vai acontecer | DateTime | 2016-04-29T00:00:00Z |
-| **Age** | Idade do paciente | Int | 62, 18, 5 |
-| **Neighbourhood** | Bairro onde a consulta ocorrerá | String | JARDIM DA PENHA |
-| **Scholarship** | Indica se o paciente recebe Bolsa Família (0 = Não, 1 = Sim) | Int (Booleano) | 0, 1 |
-| **Hipertension / Diabetes** | Indica presença de comorbidades crônicas | Int (Booleano) | 0, 1 |
-| **SMS_received** | Indica se 1 ou mais mensagens SMS de lembrete foram enviadas | Int | 0, 1 |
-| **No-show** | Variável Alvo (Target). 'No' (Não faltou/Compareceu) ou 'Yes' (Faltou) | String | No, Yes |
+### Medical Appointment Dataset
+
+### Medical Appointment Dataset (Updated Schema)
+
+| PatientId | AppointmentID | Gender | ScheduledDay | AppointmentDay | Age | Neighbourhood | Scholarship | Hipertension | Diabetes | Alcoholism | Handcap | SMS_received | No-show |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| *ID* | *ID* | *String* | *DateTime* | *DateTime* | *Integer* | *String* | *Integer* | *Integer* | *Integer* | *Integer* | *Integer* | *Integer* | *Boolean* |
+| 29872499824296 | 5642903 | F | 2016-04-29T18:38:08Z | 2016-04-29 | 62 | JARDIM DA PENHA | 0 | 1 | 0 | 0 | 0 | 0 | No |
+| 558997776694438 | 5642503 | M | 2016-04-29T16:08:27Z | 2016-04-29 | 56 | JARDIM DA PENHA | 0 | 0 | 0 | 0 | 0 | 0 | No |
+| 733688164476661 | 5630279 | F | 2016-04-27T15:05:12Z | 2016-04-29 | 23 | GOIABEIRAS | 0 | 0 | 0 | 0 | 0 | 0 | Yes |
 
 ## Qualidade dos dados
 - **Valores Faltantes (Nulls):** O dataset original é muito limpo e não apresenta valores nulos em suas colunas principais.
