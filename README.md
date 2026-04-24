@@ -21,7 +21,7 @@ A partir dessas predições, o projeto avança da análise passiva para a ação
 
 ## Orientador
 
-* Nome completo do professor 1
+- Neil Paiva Tizzo
 
 # Planejamento
 
