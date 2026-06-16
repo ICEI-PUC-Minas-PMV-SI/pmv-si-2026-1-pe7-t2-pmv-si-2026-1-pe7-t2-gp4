@@ -6,9 +6,21 @@
 
 `SEMESTRE: 7º`
 
-O projeto em desenvolvimento propõe uma solução baseada em Ciência de Dados e Inteligência Artificial para mitigar um dos maiores problemas de eficiência do Sistema Único de Saúde (SUS): o alto índice de absenteísmo (*no-show*) em consultas médicas. Utilizando o dataset "Medical Appointment No Shows" do Kaggle, composto por mais de 110 mil registros reais da cidade de Vitória (ES), o trabalho visa treinar modelos de *Machine Learning* capazes de prever a probabilidade individual de um paciente faltar ao seu agendamento, analisando comportamentos e variáveis como tempo de espera, idade e recebimento de lembretes por SMS.
+# Inteligência Operacional contra o Absenteísmo no SUS: Estratégia de Overbooking Responsável
 
-A partir dessas predições, o projeto avança da análise passiva para a ação corretiva através de uma estratégia de **overbooking dinâmico e inteligente**. O objetivo final é criar uma ferramenta ou painel que recomende, com segurança e alta precisão, o número ideal de pacientes excedentes a serem agendados diariamente. Dessa forma, busca-se zerar a ociosidade dos profissionais de saúde, otimizar os recursos públicos e acelerar o atendimento da população que aguarda nas filas de espera, sem o risco de causar superlotação nas recepções das unidades.
+## Introdução Geral
+
+O Sistema Único de Saúde (SUS) enfrenta um desafio crônico que afeta diretamente a sua eficiência e o tempo de espera da população: o alto índice de absenteísmo (*no-show*) em consultas médicas e exames. Quando um paciente falta sem aviso prévio, um recurso público valioso é desperdiçado, a ociosidade dos profissionais de saúde aumenta e a fila de espera se estende desnecessariamente. 
+
+Este projeto propõe uma solução baseada em **Ciência de Dados e Inteligência Artificial** para transformar essa análise passiva em uma ação corretiva e preditiva. Utilizando o *dataset* público *"Medical Appointment No Shows"* (Kaggle), composto por mais de **110 mil registros reais** de agendamentos na cidade de Vitória (ES), o trabalho mapeia padrões comportamentais e temporais — como o tempo de espera entre a marcação e a consulta, a idade do paciente e o impacto de lembretes por SMS — para prever a probabilidade individual de falta.
+
+### Da Predição Estatística ao Impacto de Negócio
+
+O grande diferencial deste projeto é transcender a mera modelagem matemática, fechando a lacuna entre a métrica estatística e a operação prática. A partir das probabilidades de risco geradas por algoritmos avançados de *Gradient Boosting* (XGBoost), implementamos um **mecanismo de otimização de capacidade via Política de Overbooking Inteligente**.
+
+Em vez de adotar uma abordagem linear ou punitiva, o pipeline calcula o valor esperado de faltas agregadas por agenda (unidade × dia) e recomenda, de forma dinâmica e segura, o número ideal de encaixes para cada dia de atendimento. Controlada por alavancas de gestão (fatores de segurança e tetos operacionais rígidos), a política foi simulada em ambiente de auditoria final, demonstrando capacidade de **recuperar até 67,0% da ociosidade das agendas**, mantendo o risco de superlotação (*overflow*) sob estrito controle e totalmente absorvível pela recepção das unidades de saúde.
+
+Dessa forma, o projeto se consolida como uma ferramenta de suporte à decisão (*human-in-the-loop*), viabilizando uma gestão pública eficiente, humanizada e orientada a dados, focada em acelerar o atendimento de quem mais precisa sem sobrecarregar a infraestrutura do SUS.
 
 ## Integrantes
 
