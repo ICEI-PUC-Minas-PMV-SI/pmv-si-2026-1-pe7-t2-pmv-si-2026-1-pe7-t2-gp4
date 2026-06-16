@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}Previsão de No-Show no SUS{% endblock %}</title>
-  <link rel="stylesheet" href="/public/css/styles.css">
+  <link rel="stylesheet" href="{{ static_prefix }}/css/styles.css">
   {% block head %}{% endblock %}
 </head>
 <body>
@@ -72,7 +72,7 @@
     </div>
   </footer>
 
-  <script src="/public/js/common.js" defer></script>
+  <script src="{{ static_prefix }}/js/common.js" defer></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

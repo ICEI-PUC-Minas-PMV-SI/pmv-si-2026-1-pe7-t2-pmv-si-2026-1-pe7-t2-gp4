@@ -30,6 +30,7 @@ app = FastAPI(
 )
 
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
+templates.env.globals["static_prefix"] = "/public" if PUBLIC_DIR.is_dir() else ""
 if PUBLIC_DIR.is_dir():
     app.mount("/public", StaticFiles(directory=str(PUBLIC_DIR)), name="public")
 
