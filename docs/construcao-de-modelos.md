@@ -126,13 +126,13 @@ Para cada agenda (aqui aproximada por **unidade × dia**), o número esperado de
 * `fator_seguranca = 0,85` aplica uma **margem conservadora**: liberamos menos encaixes do que o número esperado de faltas, reduzindo o risco de superlotação (*overflow*).
 * `teto_pct = 0,15` é um **limite duro de segurança**: nenhuma agenda recebe mais que 15% de encaixes extras, qualquer que seja a previsão.
 
-Aplicada às **647 agendas** de teste com ≥ 20 consultas:
+Aplicada às **356 agendas** de teste com ≥ 20 consultas:
 
-* Total de encaixes sugeridos: **3.103**; faltas reais nessas agendas: **4.571** → recuperação de **≈ 67,9%** da capacidade ociosa.
-* *Overflow* (encaixes acima das faltas reais) ocorre em **16,4%** das agendas e, quando ocorre, é de **≈ 1,82 paciente** em média.
+* Total de encaixes sugeridos: **1.442**; faltas reais nessas agendas: **2.153** → recuperação de **67,0%** da capacidade ociosa.
+* *Overflow* (encaixes acima das faltas reais) ocorre em **14,6%** das agendas e, quando ocorre, é de **1,73 paciente** em média.
 
 `fator_seguranca` e `teto_pct` são as **alavancas de gestão**: mais agressivo recupera mais vagas; mais conservador minimiza o risco de superlotação. Eticamente, o modelo é **suporte à decisão** (*human-in-the-loop*): informa risco **agregado por agenda**, sem cancelar consultas individuais nem usar atributos sociodemográficos de forma discriminatória.
 
-## Observações importantes
+## Observações importantes 
 
 Todas as tarefas, experimentações e testes desta etapa estão registrados em formato de *notebook* (células de texto e código). O código-fonte desenvolvido está disponível na íntegra na pasta `src` do repositório (`src/Colab_4_etapa.ipynb`).
