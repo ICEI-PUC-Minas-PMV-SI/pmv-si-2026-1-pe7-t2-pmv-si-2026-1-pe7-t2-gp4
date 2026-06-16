@@ -30,7 +30,8 @@ app = FastAPI(
 )
 
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
-app.mount("/public", StaticFiles(directory=str(PUBLIC_DIR)), name="public")
+if PUBLIC_DIR.is_dir():
+    app.mount("/public", StaticFiles(directory=str(PUBLIC_DIR)), name="public")
 
 
 def _metadata_context() -> dict:
