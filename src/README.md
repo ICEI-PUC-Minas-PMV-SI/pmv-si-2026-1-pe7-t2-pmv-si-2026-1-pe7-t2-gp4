@@ -13,7 +13,7 @@ O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em 
 [Otimização_de_Agendas_no_SUS_Previsão_de_No_Shows - Colab - Etapa 3.ipynb](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe7-t2-pmv-si-2026-1-pe7-t2-gp4/blob/3ed1413c9d9aa49ca3cd03bcaf18c7ab5f7bda74/src/Colab%20-%20Etapa%203.ipynb)
 
 ### [0.3.0] - 16/05/2026
-[Colab - 3 etapa.ipynb] (https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe7-t2-pmv-si-2026-1-pe7-t2-gp4/blob/main/src/Colab%20-%203%20etapa.ipynb)
+[Colab - 3 etapa.ipynb](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe7-t2-pmv-si-2026-1-pe7-t2-gp4/blob/main/src/Colab%20-%203%20etapa.ipynb)
 
 ### [0.4.0] - 01/06/2026
 [Colab_4_etapa.ipynb](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2026-1-pe7-t2-pmv-si-2026-1-pe7-t2-gp4/blob/main/src/Colab_4_etapa.ipynb)
