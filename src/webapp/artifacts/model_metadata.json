@@ -1,0 +1,86 @@
+{
+  "project": "Otimização de Agendas no SUS: Previsão de No-Shows",
+  "model_name": "Random Forest",
+  "model_version": "1.0.0",
+  "trained_at": "2026-06-16T13:46:20.843703+00:00",
+  "dataset_records_original": 110527,
+  "dataset_records_cleaned": 110521,
+  "historical_no_show_rate": 0.201898,
+  "target": "NoShow_numeric",
+  "positive_class": 1,
+  "positive_class_label": "Faltou",
+  "features": [
+    "Age",
+    "DiasEspera",
+    "Gender_numeric",
+    "Scholarship",
+    "Hipertension",
+    "Diabetes",
+    "Alcoholism",
+    "Handcap",
+    "SMS_received"
+  ],
+  "metrics": {
+    "pr_auc": 0.356357,
+    "roc_auc": 0.726379,
+    "accuracy": 0.593822,
+    "precision": 0.310804,
+    "recall": 0.811136,
+    "f1": 0.449408
+  },
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 10,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 4,
+    "min_samples_split": 10,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "model_comparison": [
+    {
+      "model_name": "XGBClassifier",
+      "pr_auc": 0.35789,
+      "roc_auc": 0.727699,
+      "f1": 0.4483,
+      "artifact_size_bytes": 770871
+    },
+    {
+      "model_name": "RandomForestClassifier",
+      "pr_auc": 0.356357,
+      "roc_auc": 0.726379,
+      "f1": 0.449408,
+      "artifact_size_bytes": 5853721
+    },
+    {
+      "model_name": "LGBMClassifier",
+      "pr_auc": 0.352565,
+      "roc_auc": 0.726098,
+      "f1": 0.448514,
+      "artifact_size_bytes": 1039444
+    }
+  ],
+  "selection_reason": "Seleção pela métrica principal PR-AUC. XGBoost obteve PR-AUC ligeiramente superior, porém dentro do limiar de empate técnico (<= 0,005). Nesse caso, priorizou-se Random Forest por menor dependência de produção e maior facilidade de deploy.",
+  "overbooking_policy": {
+    "safety_factor": 0.85,
+    "max_extra_percentage": 0.15
+  },
+  "limitations": [
+    "Dataset de um único município e período histórico específico.",
+    "Features limitadas; DiasEspera concentra grande parte do sinal preditivo.",
+    "Probabilidades são estimativas estatísticas, não certezas clínicas.",
+    "Divergência documentada: relatórios acadêmicos citam XGBoost como campeão, mas a reprodução isolada registrou empate técnico em PR-AUC; esta aplicação implantou Random Forest pelo critério de deploy."
+  ]
+}

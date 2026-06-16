@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Simulador de agenda — No-Show no SUS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <header class="page-header">
+      <span class="badge badge-primary">Agenda em lote</span>
+      <h1>Simulador de agenda</h1>
+      <p>
+        Monte uma agenda com até 100 pacientes, calcule probabilidades em lote e obtenha a
+        recomendação conservadora de encaixes extras.
+      </p>
+    </header>
+
+    <div class="agenda-toolbar">
+      <button class="btn btn-secondary" type="button" id="btn-add-patient">Adicionar paciente</button>
+      <button class="btn btn-secondary" type="button" id="btn-load-example">Carregar agenda de exemplo</button>
+      <button class="btn btn-primary" type="button" id="btn-calculate-batch">Calcular agenda</button>
+    </div>
+
+    <div class="policy-controls policy-panel card">
+      <h2>
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Parâmetros da política
+      </h2>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="safety_factor">Fator de segurança</label>
+          <input id="safety_factor" type="number" min="0" max="1" step="0.01" value="0.85">
+          <small>Margem conservadora aplicada sobre as faltas esperadas (padrão: 0,85).</small>
+        </div>
+        <div class="form-field">
+          <label for="max_extra_percentage">Teto de encaixes (%)</label>
+          <input id="max_extra_percentage" type="number" min="0" max="30" step="1" value="15">
+          <small>Percentual máximo de encaixes em relação ao tamanho da agenda (padrão: 15%).</small>
+        </div>
+      </div>
+      <div class="policy-hints">
+        <p class="policy-hint"><strong>Fator de segurança:</strong> reduz encaixes abaixo das faltas esperadas para evitar superlotação.</p>
+        <p class="policy-hint"><strong>Teto:</strong> limite máximo de encaixes extras, independentemente da previsão.</p>
+      </div>
+    </div>
+
+    <div id="agenda-errors" class="alert alert-error" role="alert" aria-live="assertive" hidden></div>
+
+    <p class="table-scroll-hint" aria-hidden="true">← Deslize horizontalmente para ver todas as colunas →</p>
+
+    <div class="table-wrapper">
+      <table class="data-table" id="agenda-table">
+        <caption>Pacientes da agenda simulada (dados não são armazenados)</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Espera</th>
+            <th scope="col">Gênero</th>
+            <th scope="col">Bolsa</th>
+            <th scope="col">HIP</th>
+            <th scope="col">DM</th>
+            <th scope="col">Alc.</th>
+            <th scope="col">Def.</th>
+            <th scope="col">SMS</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="agenda-body"></tbody>
+      </table>
+    </div>
+
+    <section id="batch-result" class="result-card batch-summary" aria-live="polite" hidden>
+      <h2>Resultado da agenda</h2>
+      <div class="stats-grid compact">
+        <div class="stat-card"><span class="stat-label">Pacientes agendados</span><strong id="batch-count">—</strong></div>
+        <div class="stat-card"><span class="stat-label">Faltas esperadas</span><strong id="batch-expected">—</strong></div>
+        <div class="stat-card"><span class="stat-label">Encaixes preliminares</span><strong id="batch-preliminary">—</strong></div>
+        <div class="stat-card"><span class="stat-label">Teto de encaixes</span><strong id="batch-cap">—</strong></div>
+        <div class="stat-card highlight"><span class="stat-label">Encaixes recomendados</span><strong id="batch-recommendation">—</strong></div>
+      </div>
+      <p id="batch-formula" class="formula-text"></p>
+      <div class="table-wrapper">
+        <table class="data-table" id="batch-details-table">
+          <caption>Probabilidades individuais</caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Idade</th>
+              <th scope="col">Espera</th>
+              <th scope="col">Probabilidade</th>
+              <th scope="col">Faixa</th>
+            </tr>
+          </thead>
+          <tbody id="batch-details-body"></tbody>
+        </table>
+      </div>
+      <p class="result-disclaimer" id="batch-disclaimer"></p>
+    </section>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="/public/js/agenda.js" defer></script>
+{% endblock %}

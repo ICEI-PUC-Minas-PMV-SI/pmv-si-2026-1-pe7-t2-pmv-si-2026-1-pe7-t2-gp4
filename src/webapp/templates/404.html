@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Página não encontrada{% endblock %}
+
+{% block content %}
+<section class="section error-page">
+  <div class="container narrow">
+    <article class="card">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1>Página não encontrada</h1>
+      <p>O endereço solicitado não existe nesta aplicação.</p>
+      <a class="btn btn-primary" href="/">Voltar ao início</a>
+    </article>
+  </div>
+</section>
+{% endblock %}

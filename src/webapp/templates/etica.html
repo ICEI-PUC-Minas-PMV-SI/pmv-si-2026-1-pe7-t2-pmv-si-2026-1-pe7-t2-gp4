@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Ética e LGPD — No-Show no SUS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <header class="page-header text-center">
+      <span class="badge badge-warning">Privacidade e uso responsável</span>
+      <h1>Ética e LGPD</h1>
+      <p>Princípios de privacidade e uso responsável deste protótipo acadêmico.</p>
+    </header>
+
+    <div class="ethics-alert" role="alert">
+      <div class="ethics-alert-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      </div>
+      <p><strong>Não insira informações reais que identifiquem pacientes.</strong></p>
+    </div>
+
+    <div class="ethics-grid">
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3>Proteção de dados</h3>
+        <p>
+          Informações de saúde são dados sensíveis segundo a LGPD. O formulário solicita apenas
+          atributos agregados e anonimizados — sem nome, CPF, telefone, endereço ou identificador
+          de paciente.
+        </p>
+      </article>
+
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        </div>
+        <h3>Não armazenamento</h3>
+        <ul>
+          <li>Nenhuma informação preenchida é persistida.</li>
+          <li>Não há banco de dados, autenticação ou histórico.</li>
+          <li>Sem cookies de rastreamento nem analytics.</li>
+          <li>Corpos de requisição não são registrados em logs.</li>
+        </ul>
+      </article>
+
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Apoio à decisão</h3>
+        <ul>
+          <li>O modelo <strong>não cancela</strong> consultas.</li>
+          <li>O modelo <strong>não bloqueia</strong> atendimento.</li>
+          <li>O modelo <strong>não substitui</strong> profissionais de saúde ou gestores.</li>
+        </ul>
+      </article>
+
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Human-in-the-loop</h3>
+        <p>
+          Deve existir decisão humana em todos os cenários operacionais. Esta aplicação demonstra
+          inferência dinâmica de um modelo previamente treinado, sem substituir fluxos clínicos reais do SUS.
+        </p>
+      </article>
+
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <h3>Riscos de viés</h3>
+        <p>
+          O dataset representa um município e período específicos. Existe risco de viés
+          socioeconômico, geográfico e temporal nas estimativas produzidas.
+        </p>
+      </article>
+
+      <article class="ethics-card">
+        <div class="ethics-card-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>Limites de generalização</h3>
+        <p>
+          Os resultados não devem ser generalizados automaticamente para todo o SUS sem validação local.
+          As faixas de risco servem apenas para comunicação visual e não representam certeza.
+        </p>
+      </article>
+    </div>
+
+    <article class="card">
+      <h2>Princípios do uso responsável</h2>
+      <ul>
+        <li>Finalidade exclusivamente acadêmica e demonstrativa.</li>
+        <li>Probabilidades são estimativas estatísticas, não diagnósticos ou decisões automáticas.</li>
+        <li>Faixas baixo, moderado e alto não devem ser usadas isoladamente para cancelar consultas.</li>
+        <li>A política de agenda utiliza probabilidades completas, não apenas classificações.</li>
+        <li>Gestores e profissionais mantêm a decisão final em todos os cenários.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+{% endblock %}

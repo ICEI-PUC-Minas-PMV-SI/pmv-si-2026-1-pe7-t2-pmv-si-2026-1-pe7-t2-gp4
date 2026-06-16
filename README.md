@@ -58,3 +58,13 @@ Acesso em Produção (quando disponível)
 # Apresentação
 
 <li><a href="presentation/README.md"> Apresentação da solução</a></li>
+
+<!-- INÍCIO: APLICAÇÃO WEB ETAPA 5 -->
+## Aplicação Web (Etapa 5)
+
+Protótipo FastAPI para previsão dinâmica de no-show e simulação de overbooking responsável.
+
+- **Execução local:** `cd src/webapp && pip install -r requirements.txt && uvicorn app:app --reload`
+- **Documentação:** [docs/etapa5-site.md](docs/etapa5-site.md)
+- **Deploy:** Vercel com Root Directory `src/webapp` (URL de produção a definir após publicação)
+<!-- FIM: APLICAÇÃO WEB ETAPA 5 -->
