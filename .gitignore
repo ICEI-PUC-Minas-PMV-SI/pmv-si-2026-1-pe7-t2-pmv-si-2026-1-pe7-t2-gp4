@@ -1,0 +1,7 @@
+src/webapp/.venv/
+src/webapp/__pycache__/
+src/webapp/.pytest_cache/
+src/webapp/.vercel/
+
+src/webapp/**/__pycache__/
+src/webapp/**/*.py[cod]

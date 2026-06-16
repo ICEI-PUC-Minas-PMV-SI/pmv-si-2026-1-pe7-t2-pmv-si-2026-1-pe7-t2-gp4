@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre — No-Show no SUS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <header class="page-header text-center">
+      <span class="badge badge-primary">Equipe</span>
+      <h1>Sobre o projeto</h1>
+      <p>Inteligência Operacional contra o Absenteísmo no SUS: Estratégia de Overbooking Responsável</p>
+    </header>
+
+    <article class="card">
+      <h2>Disciplina</h2>
+      <p>Projeto — Pesquisa e Experimentação em Sistemas de Informação (7º semestre)</p>
+      <p class="mt-0">PUC Minas — Projeto acadêmico</p>
+    </article>
+
+    <h2>Integrantes</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">DA</span>
+        <span class="team-name">Daniela Sofia Fernandes de Assis</span>
+      </div>
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">GM</span>
+        <span class="team-name">Gabriel Amorim Santos Maia</span>
+      </div>
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">GL</span>
+        <span class="team-name">Guilherme Lanza Japolino</span>
+      </div>
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">JO</span>
+        <span class="team-name">João Gabriel Galdino de Oliveira</span>
+      </div>
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">TH</span>
+        <span class="team-name">Tales Hein</span>
+      </div>
+      <div class="team-card">
+        <span class="team-avatar" aria-hidden="true">LB</span>
+        <span class="team-name">Lucas Brandão Guedes</span>
+      </div>
+    </div>
+
+    <div class="advisor-card">
+      <span class="team-avatar" aria-hidden="true">NT</span>
+      <div>
+        <strong>Orientador</strong>
+        <p class="team-name mt-0">Neil Paiva Tizzo</p>
+      </div>
+    </div>
+
+    <article class="card">
+      <h2>Entrega da Etapa 5</h2>
+      <p>
+        Esta interface foi desenvolvida de forma isolada em <code>src/webapp/</code> para cumprir
+        o requisito de aplicação em produção com inferência dinâmica, sem alterar notebooks ou
+        relatórios anteriores.
+      </p>
+    </article>
+
+    <article class="card">
+      <h2>Tecnologias utilizadas</h2>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">Pydantic</span>
+        <span class="tech-tag">Jinja2</span>
+        <span class="tech-tag">HTML / CSS / JS</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>Arquitetura resumida</h2>
+      <p>
+        Monólito Python com API REST e páginas server-side. O modelo é carregado uma única vez
+        a partir de <code>artifacts/no_show_model.joblib</code>. Frontend e backend compartilham
+        o mesmo projeto, sem banco de dados e sem persistência de formulários.
+      </p>
+    </article>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Previsão de No-Show no SUS{% endblock %}</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true">SUS</span>
+        <span class="brand-text">
+          No-Show Inteligente
+          <span class="brand-sub">Inteligência operacional</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu de navegação">
+        <span class="nav-toggle-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        Menu
+      </button>
+      <nav id="menu-principal" class="site-nav" aria-label="Principal">
+        <a href="/" {% if request.url.path == '/' %}aria-current="page"{% endif %}>Início</a>
+        <a href="/simulador" {% if request.url.path == '/simulador' %}aria-current="page"{% endif %}>Previsão individual</a>
+        <a href="/agenda" {% if request.url.path == '/agenda' %}aria-current="page"{% endif %}>Simulador de agenda</a>
+        <a href="/metodologia" {% if request.url.path == '/metodologia' %}aria-current="page"{% endif %}>Metodologia</a>
+        <a href="/etica" {% if request.url.path == '/etica' %}aria-current="page"{% endif %}>Ética e LGPD</a>
+        <a href="/sobre" {% if request.url.path == '/sobre' %}aria-current="page"{% endif %}>Sobre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h2>{{ metadata.get('project', 'Otimização de Agendas no SUS: Previsão de No-Shows') }}</h2>
+        <p>Protótipo acadêmico de apoio à decisão para previsão de absenteísmo e overbooking responsável.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/simulador">Previsão individual</a></li>
+          <li><a href="/agenda">Simulador de agenda</a></li>
+          <li><a href="/metodologia">Metodologia</a></li>
+          <li><a href="/etica">Ética e LGPD</a></li>
+          <li><a href="/sobre">Sobre</a></li>
+        </ul>
+      </div>
+      <div class="footer-meta">
+        <h3>Projeto</h3>
+        <p>Projeto acadêmico — PUC Minas</p>
+        <p>Pesquisa e Experimentação em Sistemas de Informação</p>
+        {% if metadata.get('model_name') %}
+        <p>Modelo: {{ metadata.get('model_name') }} v{{ metadata.get('model_version', '—') }}</p>
+        {% endif %}
+        <p><strong>Protótipo acadêmico de apoio à decisão</strong></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>Não utiliza banco de dados e não armazena informações preenchidas.</p>
+    </div>
+  </footer>
+
+  <script src="/public/js/common.js" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

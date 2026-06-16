@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Metodologia — No-Show no SUS{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <header class="page-header text-center">
+      <span class="badge badge-primary">Documentação técnica</span>
+      <h1>Metodologia</h1>
+      <p>Resumo técnico baseado no pipeline reproduzível do projeto acadêmico.</p>
+    </header>
+
+    <div class="method-overview">
+      <div class="metric-card">
+        <span class="metric-card-label">Dataset</span>
+        <strong class="metric-card-value metric-card-value-sm">Medical Appointment No Shows</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-card-label">Registros limpos</span>
+        <strong class="metric-card-value">{{ metadata.get('dataset_records_cleaned', '—') }}</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-card-label">Variável alvo</span>
+        <strong class="metric-card-value metric-card-value-sm">NoShow_numeric</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-card-label">Split</span>
+        <strong class="metric-card-value metric-card-value-sm">70% / 30%</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-card-label">Modelo implantado</span>
+        <strong class="metric-card-value metric-card-value-sm">{{ metadata.get('model_name', '—') }}</strong>
+      </div>
+      <div class="metric-card">
+        <span class="metric-card-label">Métrica principal</span>
+        <strong class="metric-card-value metric-card-value-sm">PR-AUC</strong>
+      </div>
+    </div>
+
+    <article class="card method-block">
+      <h2>Fonte dos dados</h2>
+      <p>
+        Dataset <em>Medical Appointment No Shows</em> (Kaggle), com registros de consultas da rede
+        pública de Vitória/ES. Fonte pública registrada no projeto:
+        <a href="https://www.kaggle.com/datasets/joniarroba/noshowappointments" rel="noopener noreferrer">Kaggle — No Show Appointments</a>.
+      </p>
+    </article>
+
+    <article class="card method-block">
+      <h2>Tratamento e engenharia de features</h2>
+      <ul>
+        <li>Conversão de datas e criação de <code>DiasEspera</code> (diferença entre consulta e agendamento).</li>
+        <li>Remoção de inconsistências: <code>DiasEspera &lt; 0</code> e <code>Age &lt; 0</code>.</li>
+        <li>Codificação de gênero: F = 0, M = 1.</li>
+        <li>Variável alvo <code>NoShow_numeric</code>: compareceu = 0, faltou = 1.</li>
+      </ul>
+    </article>
+
+    <article class="card method-block">
+      <h2>Features finais (ordem do modelo)</h2>
+      <div class="feature-grid">
+        {% for feature in metadata.get('features', []) %}
+        <code class="feature-badge">{{ feature }}</code>
+        {% else %}
+        <code class="feature-badge">Age</code>
+        <code class="feature-badge">DiasEspera</code>
+        <code class="feature-badge">Gender_numeric</code>
+        <code class="feature-badge">Scholarship</code>
+        <code class="feature-badge">Hipertension</code>
+        <code class="feature-badge">Diabetes</code>
+        <code class="feature-badge">Alcoholism</code>
+        <code class="feature-badge">Handcap</code>
+        <code class="feature-badge">SMS_received</code>
+        {% endfor %}
+      </div>
+    </article>
+
+    <article class="card method-block">
+      <h2>Divisão e prevenção de vazamento</h2>
+      <div class="leakage-highlight">
+        <p>
+          <strong>GroupShuffleSplit</strong> por <code>PatientId</code> (70% treino / 30% teste,
+          <code>random_state=42</code>), garantindo que consultas do mesmo paciente não apareçam
+          simultaneamente em treino e teste.
+        </p>
+      </div>
+    </article>
+
+    <article class="card method-block">
+      <h2>Desbalanceamento</h2>
+      <p>
+        Taxa histórica de faltas próxima de
+        {% if metadata.get('historical_no_show_rate') is not none %}
+          {{ '%.1f'|format(metadata.get('historical_no_show_rate') * 100) }}%.
+        {% else %}
+          20,2%.
+        {% endif %}
+        A métrica principal <strong>PR-AUC (Average Precision)</strong> foi adotada por ser mais
+        adequada que a acurácia em bases desbalanceadas.
+      </p>
+      <p>Random Forest, XGBoost e LightGBM foram comparados no script de treinamento isolado.</p>
+    </article>
+
+    <article class="card method-block model-highlight">
+      <h2>Modelo implantado nesta aplicação</h2>
+      <p>
+        <strong>{{ metadata.get('model_name', '—') }}</strong> (versão {{ metadata.get('model_version', '—') }}),
+        selecionado pela PR-AUC com critério de empate técnico documentado em
+        <code>docs/etapa5-site.md</code>.
+      </p>
+    </article>
+
+    {% if metadata.get('metrics') %}
+    <article class="card method-block">
+      <h2>Métricas no conjunto de teste</h2>
+      <table class="metrics-table">
+        <tbody>
+          <tr><th scope="row">PR-AUC</th><td>{{ metadata.metrics.pr_auc }}</td></tr>
+          <tr><th scope="row">ROC-AUC</th><td>{{ metadata.metrics.roc_auc }}</td></tr>
+          <tr><th scope="row">Precisão (limiar 0,50)</th><td>{{ metadata.metrics.precision }}</td></tr>
+          <tr><th scope="row">Recall (limiar 0,50)</th><td>{{ metadata.metrics.recall }}</td></tr>
+          <tr><th scope="row">F1 (limiar 0,50)</th><td>{{ metadata.metrics.f1 }}</td></tr>
+          <tr><th scope="row">Acurácia (secundária)</th><td>{{ metadata.metrics.accuracy }}</td></tr>
+        </tbody>
+      </table>
+    </article>
+    {% endif %}
+
+    <article class="card method-block">
+      <h2>Política de overbooking</h2>
+      <p>
+        Faltas esperadas = soma das probabilidades individuais. Encaixes preliminares =
+        <code>floor(faltas esperadas × fator de segurança)</code>, limitados ao teto
+        <code>floor(tamanho da agenda × percentual máximo)</code>. Padrão: fator 0,85 e teto 15%.
+      </p>
+    </article>
+
+    <article class="card method-block">
+      <h2>Limitações</h2>
+      <ul>
+        {% for item in metadata.get('limitations', []) %}
+        <li>{{ item }}</li>
+        {% else %}
+        <li>Resultados válidos para o contexto e período do dataset; generalização exige validação local.</li>
+        <li>Associações estatísticas não implicam causalidade.</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+{% endblock %}
