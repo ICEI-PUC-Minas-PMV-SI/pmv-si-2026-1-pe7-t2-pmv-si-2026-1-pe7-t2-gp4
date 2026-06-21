@@ -22,5 +22,5 @@ Este projeto foi estruturado seguindo as melhores práticas da Ciência de Dados
 
 Assista ao vídeo completo com a defesa da nossa solução, detalhando a metodologia aplicada, a arquitetura do pipeline modular e a tradução dos resultados estatísticos em retorno financeiro e social para a gestão da saúde pública:
 
-**[Clique aqui para assistir à Apresentação Final no YouTube](LINK_DO_SEU_VIDEO_AQUI)**
+**[Clique aqui para assistir à Apresentação Final no YouTube](https://youtu.be/ztCxngAZkRU)**
 
