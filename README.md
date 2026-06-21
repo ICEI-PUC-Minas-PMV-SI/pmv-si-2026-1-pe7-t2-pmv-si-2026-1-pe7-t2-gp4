@@ -35,7 +35,9 @@ Dessa forma, o projeto se consolida como uma ferramenta de suporte à decisão (
 
 - Neil Paiva Tizzo
 
-# Planejamento
+---
+
+## Planejamento
 
 | Etapa         | Atividades |
 |  :----:   | ----------- |
@@ -45,26 +47,31 @@ Dessa forma, o projeto se consolida como uma ferramenta de suporte à decisão (
 | ETAPA 4         |[Preparação dos dados, construção, avaliação e comparação dos modelos propostos](docs/construcao-de-modelos.md) |
 | ETAPA 5         |[Implantação e apresentação da solução](docs/implantação-apresentacao.md) <br>  |
 
-## Instruções de utilização
+---
 
-Acesso em Produção (quando disponível)
-* URL: https://<seu-dominio>/...
-* Status: online/homologação
-
-# Código
+## Código
 
 <li><a href="src/README.md"> Código Fonte</a></li>
 
-# Apresentação
+## Apresentação
 
 <li><a href="presentation/README.md"> Apresentação da solução</a></li>
 
-<!-- INÍCIO: APLICAÇÃO WEB ETAPA 5 -->
-## Aplicação Web (Etapa 5)
+---
+
+## Aplicação Web e Instruções de Utilização (Etapa 5)
 
 Protótipo FastAPI para previsão dinâmica de no-show e simulação de overbooking responsável.
 
-- **Execução local:** `cd src/webapp && pip install -r requirements.txt && uvicorn app:app --reload`
-- **Documentação:** [docs/etapa5-site.md](docs/etapa5-site.md)
-- **Deploy:** Vercel com Root Directory `src/webapp` (URL de produção a definir após publicação)
-<!-- FIM: APLICAÇÃO WEB ETAPA 5 -->
+### 1. Acesso em Produção (Nuvem)
+* **URL:** [https://pmv-si-2026-1-pe7-t2-pmv-si-2026-1.vercel.app/](https://pmv-si-2026-1-pe7-t2-pmv-si-2026-1.vercel.app/)
+* **Status:** Online / Produção
+* **Deploy:** Vercel com Root Directory `src/webapp`
+
+### 2. Execução Local
+Para rodar a interface e a API REST localmente na sua máquina, execute os seguintes comandos no terminal:
+
+```bash
+cd src/webapp 
+pip install -r requirements.txt 
+uvicorn app:app --reload
