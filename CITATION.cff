@@ -1,29 +1,31 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
+title: "Inteligência Operacional contra o Absenteísmo no SUS: Estratégia de Overbooking Responsável"
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
-    affiliation: PUC Minas
-    family-names:
-    given-names:
+  - family-names: "Fernandes de Assis"
+    given-names: "Daniela Sofia"
+  - family-names: "Santos Maia"
+    given-names: "Gabriel Amorim"
+  - family-names: "Lanza Japolino"
+    given-names: "Guilherme"
+  - family-names: "Galdino de Oliveira"
+    given-names: "João Gabriel"
+  - family-names: "Hein"
+    given-names: "Tales"
+  - family-names: "Brandão Guedes"
+    given-names: "Lucas"
+  - name-suffix: "Professor"
+    affiliation: "PUC Minas"
+    family-names: "Paiva Tizzo"
+    given-names: "Neil"
 keywords:
-  -
-  -
-repository-code:
+  - "Inteligência Artificial"
+  - "Machine Learning"
+  - "Absenteísmo"
+  - "Overbooking"
+  - "Saúde Pública"
+  - "SUS"
+repository-code: "[INSERIR LINK DO SEU REPOSITÓRIO GITHUB AQUI]"
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2023-06-30
+date-released: 2026-06-21
